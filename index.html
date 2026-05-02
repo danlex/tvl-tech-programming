@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TVL Tech | TypeScript for Managers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Vollkorn:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #07111d;
+        --bg-soft: #0c1a2b;
+        --panel: rgba(14, 28, 46, 0.92);
+        --panel-soft: rgba(255, 255, 255, 0.04);
+        --panel-strong: #0a1624;
+        --line: rgba(255, 255, 255, 0.1);
+        --line-accent: rgba(255, 138, 61, 0.34);
+        --text: #f6f8fb;
+        --muted: #9aacc0;
+        --accent: #ff8a3d;
+        --accent-soft: #ffb26b;
+        --success: #49d6a2;
+        --danger: #ff9c9c;
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Montserrat", "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(255, 138, 61, 0.2), transparent 24%),
+          radial-gradient(circle at 80% 10%, rgba(61, 111, 255, 0.16), transparent 28%),
+          linear-gradient(180deg, #091321 0%, #050b13 100%);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 85%);
+        pointer-events: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      button,
+      textarea {
+        font: inherit;
+      }
+
+      .app {
+        width: min(100%, 1120px);
+        margin: 0 auto;
+        padding: 12px 12px 28px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .topbar,
+      .hero,
+      .section,
+      .editor-panel,
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+      }
+
+      .topbar {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px;
+      }
+
+      .brand-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        padding: 9px;
+        border-radius: 14px;
+        border: 1px solid var(--line-accent);
+        background: linear-gradient(180deg, rgba(255, 138, 61, 0.18), rgba(255, 138, 61, 0.06));
+      }
+
+      .brand-wordmark {
+        width: 132px;
+      }
+
+      .topbar-copy {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      .chip-row {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+
+      .chip-row::-webkit-scrollbar,
+      .lesson-rail::-webkit-scrollbar {
+        display: none;
+      }
+
+      .chip {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .chip strong {
+        color: var(--text);
+      }
+
+      .hero {
+        margin-top: 12px;
+        padding: 18px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        right: -80px;
+        top: -80px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 138, 61, 0.28), transparent 70%);
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line-accent);
+        background: rgba(255, 138, 61, 0.08);
+        color: var(--accent-soft);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: "Vollkorn", Georgia, serif;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      h1 {
+        margin-top: 14px;
+        font-size: clamp(2.2rem, 11vw, 4.6rem);
+        line-height: 0.95;
+      }
+
+      h2 {
+        font-size: clamp(1.5rem, 6vw, 2.15rem);
+      }
+
+      .hero-copy {
+        margin: 14px 0 0;
+        max-width: 38ch;
+        color: var(--muted);
+        font-size: 0.96rem;
+        line-height: 1.7;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .hero-button,
+      .action {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 12px 14px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .hero-button.primary,
+      .action.primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+        color: #1d1004;
+        box-shadow: 0 10px 22px rgba(255, 138, 61, 0.2);
+      }
+
+      .hero-button.secondary,
+      .action.secondary {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: var(--line);
+        color: var(--text);
+      }
+
+      .action.ghost {
+        background: transparent;
+        border-color: var(--line);
+        color: var(--muted);
+      }
+
+      .hero-stats {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 16px;
+      }
+
+      .stat {
+        padding: 14px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .stat strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--accent-soft);
+        font-size: 1.25rem;
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 0.8rem;
+        line-height: 1.45;
+      }
+
+      .section {
+        margin-top: 12px;
+        padding: 16px;
+      }
+
+      .section-kicker {
+        color: var(--accent-soft);
+        font-size: 0.74rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section-copy,
+      .meta,
+      .note,
+      .summary,
+      .status {
+        color: var(--muted);
+      }
+
+      .section-copy {
+        margin: 8px 0 0;
+        font-size: 0.92rem;
+        line-height: 1.65;
+      }
+
+      .lesson-rail {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        margin-top: 16px;
+        padding-bottom: 4px;
+        scroll-snap-type: x proximity;
+      }
+
+      .lesson-card {
+        flex: 0 0 88%;
+        scroll-snap-align: start;
+        padding: 16px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
+        text-align: left;
+        color: var(--text);
+        cursor: pointer;
+      }
+
+      .lesson-card.active {
+        border-color: var(--line-accent);
+        background:
+          linear-gradient(180deg, rgba(255, 138, 61, 0.12), rgba(255, 138, 61, 0.03)),
+          rgba(255, 255, 255, 0.03);
+      }
+
+      .lesson-topline {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .lesson-tag {
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--muted);
+        font-size: 0.74rem;
+        font-weight: 700;
+      }
+
+      .lesson-card strong {
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      .lesson-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.55;
+      }
+
+      .editor-panel {
+        margin-top: 12px;
+        padding: 16px;
+      }
+
+      .lesson-meta {
+        display: grid;
+        gap: 12px;
+      }
+
+      .meta-row {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .meta-pill {
+        padding: 12px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .meta-pill small {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--muted);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .meta-pill strong {
+        display: block;
+        font-size: 0.96rem;
+      }
+
+      .meta {
+        margin: 6px 0 0;
+        font-size: 0.93rem;
+        line-height: 1.65;
+      }
+
+      .toolbar {
+        position: sticky;
+        bottom: 10px;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 16px;
+        padding: 12px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: rgba(7, 17, 29, 0.9);
+        backdrop-filter: blur(14px);
+      }
+
+      .toolbar .action {
+        width: 100%;
+      }
+
+      .toolbar .wide {
+        grid-column: span 2;
+      }
+
+      .editor-wrap {
+        margin-top: 14px;
+      }
+
+      .editor-label,
+      .panel-label {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .editor-help {
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .editor {
+        width: 100%;
+        min-height: 320px;
+        padding: 16px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: var(--panel-strong);
+        color: #edf4fb;
+        resize: vertical;
+        font: 16px/1.65 "SFMono-Regular", "Menlo", "Consolas", monospace;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      .editor:focus {
+        outline: 1px solid rgba(255, 138, 61, 0.4);
+        border-color: rgba(255, 138, 61, 0.5);
+      }
+
+      .note {
+        margin: 12px 0 0;
+        padding: 14px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .panel {
+        margin-top: 12px;
+        padding: 14px;
+      }
+
+      .output {
+        min-height: 140px;
+        margin: 0;
+        padding: 16px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: var(--panel-strong);
+        overflow: auto;
+        white-space: pre-wrap;
+        font: 14px/1.65 "SFMono-Regular", "Menlo", "Consolas", monospace;
+      }
+
+      .status,
+      .summary {
+        margin: 0;
+        font-size: 0.84rem;
+      }
+
+      .status.error {
+        color: var(--danger);
+      }
+
+      .status.ok {
+        color: var(--success);
+      }
+
+      .test-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .test-item {
+        padding: 13px 14px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .test-item.pass {
+        border-color: rgba(73, 214, 162, 0.28);
+        background: rgba(73, 214, 162, 0.08);
+      }
+
+      .test-item.fail {
+        border-color: rgba(255, 156, 156, 0.28);
+        background: rgba(255, 156, 156, 0.08);
+      }
+
+      .test-item strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .footer {
+        margin-top: 12px;
+        padding: 0 4px;
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.6;
+      }
+
+      @media (min-width: 760px) {
+        .app {
+          padding: 18px 18px 34px;
+        }
+
+        .topbar {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .topbar-copy {
+          max-width: 38ch;
+        }
+
+        .hero {
+          padding: 24px;
+        }
+
+        .hero-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+          gap: 18px;
+        }
+
+        .hero-side {
+          display: grid;
+          gap: 12px;
+        }
+
+        .signal-card {
+          padding: 18px;
+          border-radius: 22px;
+          border: 1px solid var(--line);
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02)),
+            linear-gradient(135deg, rgba(255, 138, 61, 0.06), transparent 46%);
+        }
+
+        .signal-card strong {
+          display: block;
+          margin-bottom: 8px;
+        }
+
+        .signal-card p,
+        .signal-card li {
+          color: var(--muted);
+          font-size: 0.9rem;
+          line-height: 1.6;
+        }
+
+        .signal-list {
+          margin: 12px 0 0;
+          padding: 0;
+          list-style: none;
+          display: grid;
+          gap: 9px;
+        }
+
+        .signal-list li {
+          display: flex;
+          gap: 10px;
+          align-items: flex-start;
+        }
+
+        .signal-dot {
+          width: 9px;
+          height: 9px;
+          margin-top: 5px;
+          flex: none;
+          border-radius: 50%;
+          background: linear-gradient(180deg, var(--accent), var(--accent-soft));
+        }
+
+        .hero-actions {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .section {
+          padding: 18px;
+        }
+
+        .lesson-card {
+          flex-basis: 320px;
+        }
+
+        .editor-panel {
+          padding: 18px;
+        }
+
+        .toolbar {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .toolbar .wide {
+          grid-column: span 1;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .app {
+          width: min(1180px, calc(100% - 40px));
+          padding-inline: 0;
+        }
+
+        .lesson-and-editor {
+          display: grid;
+          grid-template-columns: 360px minmax(0, 1fr);
+          gap: 12px;
+        }
+
+        .section {
+          margin-top: 16px;
+        }
+
+        .editor-panel {
+          margin-top: 16px;
+        }
+
+        .hero {
+          margin-top: 16px;
+        }
+
+        .lesson-rail {
+          display: grid;
+          overflow: visible;
+          gap: 10px;
+        }
+
+        .lesson-card {
+          flex: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div class="brand-row">
+          <div class="brand-mark">
+            <img src="./tvl-tech-logo.svg" alt="TVL Tech logo" />
+          </div>
+          <img class="brand-wordmark" src="./tvl-tech-wordmark.svg" alt="TVL Tech" />
+        </div>
+        <div class="topbar-copy">
+          Mobile-first training for managers: short lessons, direct editing, and instant tests.
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Phone-first training lab</span>
+            <h1>Learn code in small moves</h1>
+            <p class="hero-copy">
+              Each lesson is short enough to complete on a phone. Read one idea,
+              change one line, press run, then use tests for quick feedback.
+            </p>
+            <div class="hero-actions">
+              <a class="hero-button primary" href="#training">Start the training</a>
+              <a class="hero-button secondary" href="#lesson-strip">See lessons</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat">
+                <strong>6</strong>
+                <span>micro-lessons and mini exercises</span>
+              </div>
+              <div class="stat">
+                <strong>5m</strong>
+                <span>average lesson length</span>
+              </div>
+              <div class="stat">
+                <strong>1 page</strong>
+                <span>read, write, run, test</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="signal-card">
+              <strong>Designed for phones</strong>
+              <p>
+                Big tap targets, compact copy, a larger code area, and lessons that
+                fit into short attention windows instead of long workshops.
+              </p>
+            </div>
+            <div class="signal-card">
+              <strong>Designed for managers</strong>
+              <ul class="signal-list">
+                <li><span class="signal-dot"></span>Values become business facts.</li>
+                <li><span class="signal-dot"></span>Rules become decisions.</li>
+                <li><span class="signal-dot"></span>Tests become fast feedback.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="training">
+        <div class="section-kicker">Step 1</div>
+        <h2>Pick a short lesson</h2>
+        <p class="section-copy">
+          Swipe through the cards on phone, or scan them on desktop. Start anywhere,
+          but Lesson 1 is the easiest entry point.
+        </p>
+
+        <div class="lesson-and-editor">
+          <div>
+            <div class="lesson-rail" id="lesson-strip"></div>
+          </div>
+
+          <section class="editor-panel">
+            <div class="lesson-meta">
+              <div>
+                <div class="section-kicker">Step 2</div>
+                <h2 id="lesson-title">Lesson</h2>
+                <p class="meta" id="lesson-description"></p>
+              </div>
+              <div class="meta-row">
+                <div class="meta-pill">
+                  <small>Time</small>
+                  <strong id="lesson-time">5 min</strong>
+                </div>
+                <div class="meta-pill">
+                  <small>Focus</small>
+                  <strong id="lesson-focus">Concept</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="toolbar">
+              <button class="action primary" id="run-button" type="button">Run code</button>
+              <button class="action secondary" id="test-button" type="button">Run tests</button>
+              <button class="action secondary wide" id="prev-button" type="button">Previous</button>
+              <button class="action secondary wide" id="next-button" type="button">Next lesson</button>
+              <button class="action ghost wide" id="reset-button" type="button">Reset</button>
+              <button class="action ghost wide" id="solution-button" type="button">Show solution</button>
+            </div>
+
+            <div class="editor-wrap">
+              <div class="editor-label">
+                <h3>Code</h3>
+                <span class="editor-help">Tap, edit, run.</span>
+              </div>
+              <textarea class="editor" id="editor" spellcheck="false"></textarea>
+            </div>
+
+            <p class="note" id="lesson-prompt"></p>
+          </section>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-label">
+          <h3>Output</h3>
+          <p class="status" id="status"></p>
+        </div>
+        <pre class="output" id="output">Press "Run code" to see the result.</pre>
+      </section>
+
+      <section class="panel">
+        <div class="panel-label">
+          <h3>Tests</h3>
+          <p class="summary" id="test-summary">Press "Run tests" to validate the code.</p>
+        </div>
+        <div class="test-list" id="test-list"></div>
+      </section>
+
+      <footer class="footer">
+        This page compiles TypeScript in the browser and needs normal internet access
+        to load the compiler library.
+      </footer>
+    </main>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+      const lessons = [
+        {
+          id: "lesson-1",
+          title: "1. Save a value",
+          description: "Programming starts by naming information so you can use it again.",
+          time: "3 min",
+          focus: "Variables",
+          cardCopy: "Edit a team name and a number. Watch the output change.",
+          prompt: "Mission: change the team name or project count, then run it again.",
+          tests: [
+            {
+              name: "Logs the team label",
+              code: `assert(__testOutput.some((line) => line.includes("Team:")), 'Expected a line that includes "Team:"');`
+            },
+            {
+              name: "Logs the project label",
+              code: `assert(__testOutput.some((line) => line.includes("Projects:")), 'Expected a line that includes "Projects:"');`
+            }
+          ],
+          starter: `const teamName: string = "Platform";
+const projects: number = 3;
+
+console.log("Team:", teamName);
+console.log("Projects:", projects);`,
+          solution: `const teamName: string = "Revenue";
+const projects: number = 2;
+
+console.log("Team:", teamName);
+console.log("Projects:", projects);`
+        },
+        {
+          id: "lesson-2",
+          title: "2. Write a rule",
+          description: "An if statement turns a decision rule into code.",
+          time: "4 min",
+          focus: "Conditionals",
+          cardCopy: "Use a small rule to show when attention is needed.",
+          prompt: "Mission: change the blocked count and see which message appears.",
+          tests: [
+            {
+              name: "Shows one outcome",
+              code: `assert(
+  __testOutput.some((line) => ["On track", "Needs attention"].includes(line)),
+  "Expected one of the rule outputs"
+);`
+            }
+          ],
+          starter: `const blockedProjects: number = 1;
+
+if (blockedProjects > 0) {
+  console.log("Needs attention");
+} else {
+  console.log("On track");
+}`,
+          solution: `const blockedProjects: number = 0;
+
+if (blockedProjects > 0) {
+  console.log("Needs attention");
+} else {
+  console.log("On track");
+}`
+        },
+        {
+          id: "lesson-3",
+          title: "3. Reuse logic",
+          description: "A function is a reusable instruction with an input and an output.",
+          time: "5 min",
+          focus: "Functions",
+          cardCopy: "Write one small function for a weekly status line.",
+          prompt: "Mission: change the name passed into the function and run again.",
+          tests: [
+            {
+              name: "Keeps the function",
+              code: `assert(typeof makeGreeting === "function", "Expected makeGreeting to be a function");`
+            },
+            {
+              name: "Returns a string",
+              code: `assert(typeof makeGreeting("Elena") === "string", "Expected a string result");`
+            }
+          ],
+          starter: `function makeGreeting(name: string): string {
+  return \`Hello \${name}\`;
+}
+
+console.log(makeGreeting("Elena"));`,
+          solution: `function makeGreeting(name: string): string {
+  return \`Hello \${name}\`;
+}
+
+console.log(makeGreeting("Diana"));`
+        },
+        {
+          id: "lesson-4",
+          title: "4. Work with a list",
+          description: "An array is a list. You can count it or loop through it.",
+          time: "5 min",
+          focus: "Arrays",
+          cardCopy: "Add a person to the list and see the headcount update.",
+          prompt: "Mission: add one more name to the list, then run and test.",
+          tests: [
+            {
+              name: "Keeps a list",
+              code: `assert(Array.isArray(teamMembers), "Expected teamMembers to be an array");`
+            },
+            {
+              name: "Counts the list",
+              code: `assert(teamMembers.length >= 2, "Expected at least two team members");`
+            }
+          ],
+          starter: `const teamMembers: string[] = ["Ana", "Mihai"];
+
+console.log("Headcount:", teamMembers.length);
+console.log(teamMembers[0]);`,
+          solution: `const teamMembers: string[] = ["Ana", "Mihai", "Sara"];
+
+console.log("Headcount:", teamMembers.length);
+console.log(teamMembers[0]);`
+        },
+        {
+          id: "lesson-5",
+          title: "5. Model a project",
+          description: "An object groups a few related pieces of information together.",
+          time: "5 min",
+          focus: "Objects",
+          cardCopy: "Represent one project with fields like name and priority.",
+          prompt: "Mission: change the priority or blocked status and re-run.",
+          tests: [
+            {
+              name: "Creates a project",
+              code: `assert(typeof project === "object" && project !== null, "Expected project to be an object");`
+            },
+            {
+              name: "Uses a priority field",
+              code: `assert(typeof project.priority === "string", "Expected project.priority to exist");`
+            }
+          ],
+          starter: `const project = {
+  name: "Portal refresh",
+  priority: "high",
+  blocked: false
+};
+
+console.log(project.name);
+console.log(project.priority);`,
+          solution: `const project = {
+  name: "Portal refresh",
+  priority: "medium",
+  blocked: true
+};
+
+console.log(project.name);
+console.log(project.priority);`
+        },
+        {
+          id: "lesson-6",
+          title: "6. Mini challenge",
+          description: "Turn a business rule into code and let the tests confirm it.",
+          time: "6 min",
+          focus: "Practice",
+          cardCopy: "Finish a prioritization rule for high-impact, low-effort work.",
+          prompt: "Mission: make strong opportunities return true and weak ones return false.",
+          tests: [
+            {
+              name: "Prioritizes strong work",
+              code: `assert(
+  shouldPrioritize({ name: "Growth", impact: 9, effort: 3 }) === true,
+  "Expected strong work to return true"
+);`
+            },
+            {
+              name: "Rejects weak work",
+              code: `assert(
+  shouldPrioritize({ name: "Cleanup", impact: 2, effort: 7 }) === false,
+  "Expected weak work to return false"
+);`
+            }
+          ],
+          starter: `type Initiative = {
+  name: string;
+  impact: number;
+  effort: number;
+};
+
+function shouldPrioritize(item: Initiative): boolean {
+  return false;
+}
+
+console.log(
+  shouldPrioritize({ name: "Analytics", impact: 8, effort: 3 })
+);`,
+          solution: `type Initiative = {
+  name: string;
+  impact: number;
+  effort: number;
+};
+
+function shouldPrioritize(item: Initiative): boolean {
+  return item.impact >= 7 && item.effort <= 4;
+}
+
+console.log(
+  shouldPrioritize({ name: "Analytics", impact: 8, effort: 3 })
+);`
+        }
+      ];
+
+      const state = {
+        activeId: lessons[0].id
+      };
+
+      const editor = document.getElementById("editor");
+      const output = document.getElementById("output");
+      const lessonStrip = document.getElementById("lesson-strip");
+      const lessonTitle = document.getElementById("lesson-title");
+      const lessonDescription = document.getElementById("lesson-description");
+      const lessonTime = document.getElementById("lesson-time");
+      const lessonFocus = document.getElementById("lesson-focus");
+      const lessonPrompt = document.getElementById("lesson-prompt");
+      const status = document.getElementById("status");
+      const testSummary = document.getElementById("test-summary");
+      const testList = document.getElementById("test-list");
+      const runButton = document.getElementById("run-button");
+      const testButton = document.getElementById("test-button");
+      const prevButton = document.getElementById("prev-button");
+      const nextButton = document.getElementById("next-button");
+      const resetButton = document.getElementById("reset-button");
+      const solutionButton = document.getElementById("solution-button");
+
+      function storageKey(id) {
+        return `ts-for-managers:${id}`;
+      }
+
+      function getLesson(id) {
+        return lessons.find((lesson) => lesson.id === id);
+      }
+
+      function getLessonIndex(id) {
+        return lessons.findIndex((lesson) => lesson.id === id);
+      }
+
+      function getSavedCode(id) {
+        return window.localStorage.getItem(storageKey(id));
+      }
+
+      function setSavedCode(id, code) {
+        window.localStorage.setItem(storageKey(id), code);
+      }
+
+      function setStatus(message, kind = "") {
+        status.textContent = message;
+        status.className = `status ${kind}`.trim();
+      }
+
+      function renderTestResults(results) {
+        testList.innerHTML = "";
+
+        if (!results || results.length === 0) {
+          testSummary.textContent = 'Press "Run tests" to validate the code.';
+          return;
+        }
+
+        const passedCount = results.filter((result) => result.pass).length;
+        testSummary.textContent = `${passedCount}/${results.length} tests passed`;
+
+        for (const result of results) {
+          const item = document.createElement("div");
+          item.className = `test-item ${result.pass ? "pass" : "fail"}`;
+          item.innerHTML = `<strong>${result.pass ? "Pass" : "Fail"}: ${result.name}</strong><span>${result.message}</span>`;
+          testList.appendChild(item);
+        }
+      }
+
+      function updateNavButtons() {
+        const index = getLessonIndex(state.activeId);
+        prevButton.disabled = index === 0;
+        nextButton.disabled = index === lessons.length - 1;
+        prevButton.style.opacity = index === 0 ? "0.5" : "1";
+        nextButton.style.opacity = index === lessons.length - 1 ? "0.5" : "1";
+      }
+
+      function renderLessonCards() {
+        lessonStrip.innerHTML = "";
+
+        for (const lesson of lessons) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "lesson-card";
+          if (lesson.id === state.activeId) {
+            button.classList.add("active");
+          }
+          button.innerHTML = `
+            <div class="lesson-topline">
+              <span class="lesson-tag">${lesson.time}</span>
+              <span class="lesson-tag">${lesson.focus}</span>
+            </div>
+            <strong>${lesson.title}</strong>
+            <p>${lesson.cardCopy}</p>
+          `;
+          button.addEventListener("click", () => selectLesson(lesson.id, true));
+          lessonStrip.appendChild(button);
+        }
+      }
+
+      function selectLesson(id, shouldScroll = false) {
+        state.activeId = id;
+        const lesson = getLesson(id);
+        const saved = getSavedCode(id);
+
+        lessonTitle.textContent = lesson.title;
+        lessonDescription.textContent = lesson.description;
+        lessonTime.textContent = lesson.time;
+        lessonFocus.textContent = lesson.focus;
+        lessonPrompt.textContent = lesson.prompt;
+        editor.value = saved || lesson.starter;
+        output.textContent = 'Press "Run code" to see the result.';
+        renderTestResults([]);
+        setStatus("Ready to run.", "ok");
+        renderLessonCards();
+        updateNavButtons();
+
+        if (shouldScroll) {
+          document.getElementById("training").scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+
+      function executeCode() {
+        const lesson = getLesson(state.activeId);
+
+        if (!window.Babel) {
+          throw new Error("The browser could not load the TypeScript compiler from the CDN.");
+        }
+
+        const lines = [];
+        const mockConsole = {
+          log: (...args) => lines.push(args.map(String).join(" ")),
+          error: (...args) => lines.push(args.map(String).join(" "))
+        };
+
+        const compiled = window.Babel.transform(editor.value, {
+          filename: `${lesson.id}.ts`,
+          presets: [["typescript", { allExtensions: true }]]
+        }).code;
+
+        const runner = new Function("console", compiled);
+        runner(mockConsole);
+
+        return { output: lines };
+      }
+
+      function runCode() {
+        const lesson = getLesson(state.activeId);
+        setSavedCode(lesson.id, editor.value);
+
+        try {
+          const execution = executeCode();
+          output.textContent = execution.output.join("\n") || "(No output)";
+          setStatus("Code ran successfully.", "ok");
+        } catch (error) {
+          output.textContent = "";
+          setStatus(error.message, "error");
+        }
+      }
+
+      function runTests() {
+        const lesson = getLesson(state.activeId);
+        setSavedCode(lesson.id, editor.value);
+
+        try {
+          const execution = executeCode();
+          output.textContent = execution.output.join("\n") || "(No output)";
+
+          const results = lesson.tests.map((test) => {
+            try {
+              const wrappedTest = `${editor.value}
+
+const __testOutput = ${JSON.stringify(execution.output)};
+
+function assert(condition: boolean, message: string): void {
+  if (!condition) {
+    throw new Error(message);
+  }
+}
+
+${test.code}`;
+
+              const compiledTest = window.Babel.transform(wrappedTest, {
+                filename: `${lesson.id}.test.ts`,
+                presets: [["typescript", { allExtensions: true }]]
+              }).code;
+
+              const runner = new Function("console", compiledTest);
+              runner({ log() {}, error() {} });
+
+              return {
+                name: test.name,
+                pass: true,
+                message: "Passed"
+              };
+            } catch (error) {
+              return {
+                name: test.name,
+                pass: false,
+                message: error.message
+              };
+            }
+          });
+
+          renderTestResults(results);
+
+          if (results.every((result) => result.pass)) {
+            setStatus("All tests passed.", "ok");
+          } else {
+            setStatus("Some tests failed. Keep going.", "error");
+          }
+        } catch (error) {
+          output.textContent = "";
+          renderTestResults([
+            {
+              name: "Code compiles and runs",
+              pass: false,
+              message: error.message
+            }
+          ]);
+          setStatus("Fix the code first, then run the tests again.", "error");
+        }
+      }
+
+      function moveLesson(direction) {
+        const index = getLessonIndex(state.activeId);
+        const nextIndex = index + direction;
+
+        if (nextIndex < 0 || nextIndex >= lessons.length) {
+          return;
+        }
+
+        selectLesson(lessons[nextIndex].id, true);
+      }
+
+      function resetLesson() {
+        const lesson = getLesson(state.activeId);
+        editor.value = lesson.starter;
+        setSavedCode(lesson.id, lesson.starter);
+        output.textContent = 'Press "Run code" to see the result.';
+        renderTestResults([]);
+        setStatus("Lesson reset.", "ok");
+      }
+
+      function showSolution() {
+        const lesson = getLesson(state.activeId);
+        editor.value = lesson.solution;
+        setSavedCode(lesson.id, lesson.solution);
+        renderTestResults([]);
+        setStatus("Solution loaded into the editor.", "ok");
+      }
+
+      runButton.addEventListener("click", runCode);
+      testButton.addEventListener("click", runTests);
+      prevButton.addEventListener("click", () => moveLesson(-1));
+      nextButton.addEventListener("click", () => moveLesson(1));
+      resetButton.addEventListener("click", resetLesson);
+      solutionButton.addEventListener("click", showSolution);
+      editor.addEventListener("input", () => {
+        setSavedCode(state.activeId, editor.value);
+        setStatus("Changes saved in this browser.", "ok");
+      });
+
+      selectLesson(lessons[0].id);
+    </script>
+  </body>
+</html>

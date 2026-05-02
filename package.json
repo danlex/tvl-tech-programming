@@ -1,0 +1,16 @@
+{
+  "name": "typescript-for-managers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A very simple TypeScript training for managers",
+  "scripts": {
+    "lesson:1": "node lessons/01-thinking-like-a-programmer.ts",
+    "lesson:2": "node lessons/02-decisions.ts",
+    "lesson:3": "node lessons/03-functions-and-arrays.ts",
+    "lesson:4": "node lessons/04-objects-and-types.ts",
+    "exercise:1": "node exercises/01-weekly-report.ts",
+    "exercise:2": "node exercises/02-prioritization.ts",
+    "solution:1": "node solutions/01-weekly-report.solution.ts",
+    "solution:2": "node solutions/02-prioritization.solution.ts"
+  }
+}
