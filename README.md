@@ -9,10 +9,11 @@ The easiest way to use it is now in the browser, with a phone-first layout and s
 Open [index.html](/Users/adan/work/claude/code/tvl-tech-programming/index.html) in a browser.
 
 If you need the teaching plan as well, use [CURRICULA.md](/Users/adan/work/claude/code/tvl-tech-programming/CURRICULA.md).
+If you need the full facilitator-ready structure, use [TRAINING_MANUAL.md](/Users/adan/work/claude/code/tvl-tech-programming/TRAINING_MANUAL.md).
 
 That page includes:
 
-- 6 micro-lessons
+- 7 short lessons
 - an editor
 - a Run button
 - a Run tests button
@@ -27,6 +28,7 @@ Note: the browser page loads the TypeScript compiler from a CDN, so it needs nor
 
 - Variables: storing information
 - `if` statements: making decisions
+- `while` loops: repeating while a condition stays true
 - Functions: reusing logic
 - Arrays: working with lists
 - Objects and types: modeling real-world data
@@ -76,16 +78,11 @@ npm run lesson:1
 
 - 10 minutes: explain what code is
 - 10 minutes: let everyone open the browser training on phone or laptop
-- 30 minutes: walk through the 6 micro-lessons
+- 30 minutes: walk through the 7 short lessons
 - 15 minutes: let people repeat the challenge lesson on their own
 - 10 minutes: discuss how these concepts show up in real software teams
 
-For more structured options, see the curricula document for:
-
-- a 35-minute mobile micro-learning path
-- a 60-minute standard workshop
-- a 2-session deep-dive
-- a self-study path
+For the exact beginner scope, see [CURRICULA.md](/Users/adan/work/claude/code/tvl-tech-programming/CURRICULA.md).
 
 ## Good framing for managers
 

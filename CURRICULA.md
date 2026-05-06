@@ -1,349 +1,195 @@
-# TypeScript for Managers Curricula
+# TypeScript for Managers Curriculum
 
-This document turns the browser training into a few ready-to-run learning paths.
+This curriculum is only for basic TypeScript learning for managers.
 
-Use the browser experience in [index.html](/Users/adan/work/claude/code/tvl-tech-programming/index.html) as the teaching surface for all of them.
-The current version is mobile-first and built around 6 micro-lessons.
+It is not a software engineering program and not a technical certification. The goal is simple: help managers feel comfortable reading and changing small pieces of TypeScript in the browser.
 
-## Core learning outcomes
+Use this with [index.html](/Users/adan/work/claude/code/tvl-tech-programming/index.html).
 
-By the end of the training, participants should be able to:
+## Purpose
 
-- explain what a variable, function, conditional, array, and object are
-- read a short TypeScript example without feeling lost
-- change simple values and predict how output will change
-- understand how business rules become software rules
-- use basic tests as feedback instead of guessing
+This training helps managers:
+
+- recognize a few basic programming concepts
+- make small code changes without fear
+- understand how code turns information into decisions and output
+- talk about simple code with more confidence
 
 ## Audience
 
+This is for:
+
 - managers
-- delivery leads
 - founders
 - product leaders
-- operations leaders who work closely with engineering teams
+- delivery leads
+- operations leaders
 
-## Assumptions
+Assumptions:
 
-- no prior programming experience
-- basic comfort using a browser and editing text
-- curiosity is more important than technical depth
+- no programming background
+- comfortable using a browser
+- willing to learn through short, hands-on examples
 
-## Curriculum 1: Mobile Micro-Learning
+## Learning outcomes
 
-Best for:
+By the end of the training, participants should be able to:
 
-- phone-first learning
-- async learning bursts
-- leadership teams with very limited time
+1. explain what a variable is
+2. explain what an `if` statement does
+3. explain what a `while` loop does at a basic level
+4. explain what a function is
+5. recognize an array and an object
+6. make a small change in TypeScript and predict the output
+7. use `Run` and `Run tests` to check whether the code behaves as expected
 
-Duration:
+## Training structure
 
-- 35 minutes
+The training is made of 7 short lessons:
 
-Learning goal:
+1. Variables
+2. `if` statements
+3. `while` loops
+4. Functions
+5. Arrays
+6. Objects
+7. Mini challenge
 
-- make code feel approachable through very short editing loops
+Each lesson follows the same pattern:
 
-Flow:
+1. read the short explainer
+2. read the mission
+3. change one small part of the code
+4. press `Run`
+5. check the output
+6. press `Run tests`
 
-1. Introduction and framing: 5 minutes
-2. Lessons 1 and 2: 8 minutes
-3. Lessons 3 and 4: 10 minutes
-4. Lesson 5: 5 minutes
-5. Lesson 6 challenge: 5 minutes
-6. Debrief: 2 minutes
+## Lesson goals
 
-Facilitator emphasis:
+### Lesson 1: Variables
 
-- keep every segment small
-- have people type on their own phones if possible
-- ask them to change one thing only before each run
-- use tests as quick feedback, not assessment
+Goal:
 
-Success looks like:
-
-- participants complete at least four lessons comfortably on a phone
-- participants understand that code can be learned in small increments
-
-## Curriculum 2: Executive Primer
-
-Best for:
-
-- leadership offsites
-- client workshops
-- intro sessions where time is tight
-
-Duration:
-
-- 45 minutes
-
-Learning goal:
-
-- make code feel understandable and less intimidating
-
-Flow:
-
-1. Introduction and framing: 5 minutes
-2. Lesson 1 and Lesson 2: 12 minutes
-3. Lesson 3: 8 minutes
-4. Lesson 4: 8 minutes
-5. Lesson 6 together: 7 minutes
-6. Debrief: 5 minutes
-
-Facilitator emphasis:
-
-- keep the pace fast
-- do most of the typing live
-- ask participants to predict outputs before clicking `Run code`
-- use `Run tests` to show that software can check work immediately
+- understand that a variable stores a value under a name
 
 Success looks like:
 
-- participants can explain that code is data plus rules plus output
-- participants can point at a simple `if` statement and describe what it does
+- the participant changes a value and sees the output change
 
-## Curriculum 3: Standard Workshop
+### Lesson 2: `if`
 
-Best for:
+Goal:
 
-- internal manager enablement
-- cross-functional training
-- onboarding for non-technical stakeholders
-
-Duration:
-
-- 60 minutes
-
-Learning goal:
-
-- build enough confidence to read, edit, and discuss simple code
-
-Flow:
-
-1. What programming is and is not: 10 minutes
-2. Lessons 1 and 2: 10 minutes
-3. Lessons 3 and 4: 10 minutes
-4. Lesson 5: 10 minutes
-5. Lesson 6 challenge: 10 minutes
-6. Pair practice and replay: 10 minutes
-7. Debrief and applications to daily work: 10 minutes
-
-Facilitator emphasis:
-
-- let participants type for themselves
-- pause after each lesson for one business example from the room
-- treat tests as support, not judgment
-
-Suggested discussion prompts:
-
-- "What rule from your work could become an `if` statement?"
-- "What repeated update could become a function?"
-- "What real-world thing in your work could be represented as an object?"
+- understand that code can make a decision based on a condition
 
 Success looks like:
 
-- participants complete the final challenge with some guidance
-- participants use tests to validate their answers
-- participants start translating business concepts into code concepts
+- the participant changes an input and sees a different branch run
 
-## Curriculum 4: Deep-Dive Team Session
+### Lesson 3: `while`
 
-Best for:
+Goal:
 
-- management teams working closely with engineers
-- delivery organizations
-- product and engineering alignment sessions
-
-Duration:
-
-- 2 sessions of 60 minutes each
-
-Learning goal:
-
-- connect code concepts to planning, reporting, prioritization, and software collaboration
-
-### Session 1
-
-Topics:
-
-- what code expresses
-- variables and types
-- decision rules
-- business logic as software logic
-
-Flow:
-
-1. Introduction: 10 minutes
-2. Lessons 1, 2, and 3: 25 minutes
-3. Live examples from management work: 15 minutes
-4. Short reflection: 10 minutes
-
-Homework:
-
-- re-run Lessons 1 to 3
-- modify at least three values
-- write down one rule from real work that could become code
-
-### Session 2
-
-Topics:
-
-- reusable logic
-- lists and objects
-- validating logic with tests
-- limits of simple training code versus real systems
-
-Flow:
-
-1. Quick recap: 10 minutes
-2. Lessons 4 and 5: 20 minutes
-3. Lesson 6 challenge and replay: 20 minutes
-4. Debrief on software collaboration: 10 minutes
+- understand that code can repeat a step while a condition is true
 
 Success looks like:
 
-- participants can describe how engineers break problems into inputs, rules, and outputs
-- participants become more precise in requirements conversations
-- participants better understand why ambiguity creates software risk
+- the participant changes the loop behavior and sees different repeated output
 
-## Curriculum 5: Self-Study Path
+### Lesson 4: Functions
 
-Best for:
+Goal:
 
-- asynchronous learning
-- pre-work before a live workshop
-- lightweight onboarding
+- understand that a function is reusable logic with an input and output
 
-Duration:
+Success looks like:
 
-- 30 to 45 minutes
+- the participant changes the function input and sees a new result
 
-Instructions for participants:
+### Lesson 5: Arrays
 
-1. Open `index.html`
-2. Complete the six lessons in order
-3. For each lesson, change at least one value and re-run the code
-4. Use `Run tests` before moving on
-5. Use `Next lesson` to keep moving without losing momentum
-6. Review the solutions only after trying on your own
+Goal:
 
-Reflection questions:
+- understand that an array is a list of values
 
-- What looked most familiar from your day job?
-- Which code pattern felt easiest to understand?
-- Which part would help you communicate better with engineers?
+Success looks like:
 
-## Module map
+- the participant adds one item and sees the list size change
 
-### Module 1: Variables
+### Lesson 6: Objects
 
-Training asset:
+Goal:
 
-- Lesson 1
+- understand that an object groups related information
 
-Manager translation:
+Success looks like:
 
-- facts and inputs
+- the participant changes one field and sees the new value in output
 
-Key takeaway:
+### Lesson 7: Mini challenge
 
-- code starts by naming information clearly
+Goal:
 
-### Module 2: Conditionals
+- combine the earlier ideas in one simple business rule
 
-Training asset:
+Success looks like:
 
-- Lesson 2
+- the participant completes the rule and passes the tests
 
-Manager translation:
+## Recommended duration
 
-- escalation rules, budget rules, decision gates
+This curriculum is intentionally small.
 
-Key takeaway:
+Recommended format:
 
-- business logic often becomes `if` statements
+- 30 to 45 minutes total
 
-### Module 3: Functions
+Suggested pacing:
 
-Training asset:
+1. Intro: 5 minutes
+2. Lessons 1 to 3: 12 minutes
+3. Lessons 4 to 6: 15 minutes
+4. Final challenge: 8 minutes
+5. Short debrief: 5 minutes
 
-- Lesson 3
+## Teaching approach
 
-Manager translation:
+Keep the teaching style simple:
 
-- repeatable communication or logic
+- plain language
+- very short explanations
+- one concept at a time
+- one code change at a time
+- immediate feedback through output and tests
 
-Key takeaway:
+Avoid:
 
-- functions package repeatable logic
+- advanced TypeScript topics
+- architecture discussions
+- tooling setup
+- long theory sections
+- making this larger or more advanced than a basic introduction
 
-### Module 4: Arrays
+## Assessment
 
-Training asset:
+This training uses light assessment only.
 
-- Lesson 4
+Participants do not need to write code from scratch. They only need to:
 
-Manager translation:
+- understand the idea
+- make the requested change
+- explain what changed
+- confirm the result with `Run` or `Run tests`
 
-- lists of people, tasks, or projects
+## What this curriculum is not
 
-Key takeaway:
+This curriculum does not try to teach:
 
-- arrays hold collections you can count or inspect
+- professional TypeScript development
+- frameworks
+- APIs
+- classes, generics, or advanced typing
+- debugging complex applications
+- software design or system architecture
 
-### Module 5: Objects and simple models
-
-Training asset:
-
-- Lesson 5
-
-Manager translation:
-
-- projects, initiatives, team members, risks
-
-Key takeaway:
-
-- objects help software describe real things with explicit fields
-
-### Module 6: Practice and validation
-
-Training assets:
-
-- Lesson 6
-
-Manager translation:
-
-- turning reporting and prioritization into precise logic
-
-Key takeaway:
-
-- tests provide fast feedback and reduce ambiguity
-
-## Assessment approach
-
-This training should feel practical, not academic.
-
-Use lightweight assessment:
-
-- Can the participant explain the code in plain language?
-- Can the participant change a value and predict the output?
-- Can the participant pass the exercise tests?
-- Can the participant connect the lesson to a business process?
-
-## Recommended facilitator language
-
-Helpful phrases:
-
-- "You do not need to think like an engineer yet. Just describe the rule."
-- "Let the test tell you whether the code behaves the way you intended."
-- "We are not optimizing for syntax memorization. We are optimizing for understanding."
-- "If you can explain the rule clearly, you are already doing an important part of programming."
-
-## What not to do
-
-- do not overload the session with terminology
-- do not introduce tooling setup during the live workshop
-- do not turn syntax mistakes into high-pressure moments
-- do not drift into advanced TypeScript topics
-- do not present tests as grading
+It is only a basic introduction for managers.

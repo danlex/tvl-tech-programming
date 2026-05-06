@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TVL Tech | Guide | Functions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/lucide-static@0.511.0/font/lucide.css"
+    />
+    <link rel="stylesheet" href="guide.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="section">
+        <div class="brand-row">
+          <a class="brand-mark" href="https://www.tvl.tech/" aria-label="TVL Tech website" title="TVL Tech website">
+            <img src="tvl-tech-combined-logo.svg" alt="TVL Tech" />
+          </a>
+          <a class="brand-home" href="wiki.html">
+            <div class="brand-copy">
+              <h1>Programming Guide</h1>
+            </div>
+          </a>
+          <a class="brand-link" href="index.html">Lessons</a>
+        </div>
+
+        <div class="guide-head">
+          <div class="guide-nav" aria-label="Guide navigation">
+            <a class="guide-nav-button" href="guide-while-loops.html" aria-label="Previous concept: While loops" title="Previous concept: While loops">
+              <i class="icon-chevron-left action-icon" aria-hidden="true"></i>
+            </a>
+            <div class="guide-current">
+              <span class="guide-current-label">Concept 5 / 8</span>
+              <span class="guide-current-title">Functions</span>
+            </div>
+            <a class="guide-nav-button" href="guide-arrays.html" aria-label="Next concept: Arrays" title="Next concept: Arrays">
+              <i class="icon-chevron-right action-icon" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="guide-body">
+          <section class="guide-intro">
+            <h2>Functions</h2>
+            <p>
+              A function is a reusable step. It can take input, do some work, and return a result.
+            </p>
+            <p>
+              Functions matter because they let you name repeatable logic once instead of rewriting it everywhere.
+            </p>
+          </section>
+
+          <section class="guide-section">
+            <pre>function makeStatusLine(name: string): string {
+  return `Weekly update for ${name}`;
+}</pre>
+            <div class="mini">
+              <h3>What to notice</h3>
+              <ul>
+                <li><code>makeStatusLine</code> is the function name.</li>
+                <li><code>name: string</code> is the input.</li>
+                <li><code>: string</code> after the parentheses means the function returns text.</li>
+                <li><code>return</code> sends the final result back out.</li>
+              </ul>
+            </div>
+            <div class="callout">
+              <p>Mental model: a function is a named machine. You put something in and get a result back.</p>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

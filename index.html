@@ -3,29 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TVL Tech | TypeScript for Managers</title>
+    <title>TVL Tech | Programming Basics for Everyone</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Vollkorn:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/lucide-static@0.511.0/font/lucide.css"
     />
     <style>
       :root {
-        --bg: #07111d;
-        --bg-soft: #0c1a2b;
-        --panel: rgba(14, 28, 46, 0.92);
-        --panel-soft: rgba(255, 255, 255, 0.04);
-        --panel-strong: #0a1624;
-        --line: rgba(255, 255, 255, 0.1);
-        --line-accent: rgba(255, 138, 61, 0.34);
-        --text: #f6f8fb;
-        --muted: #9aacc0;
-        --accent: #ff8a3d;
-        --accent-soft: #ffb26b;
+        --bg: #ffffff;
+        --bg-soft: #f7f4f2;
+        --panel: #ffffff;
+        --panel-soft: #f8f6f5;
+        --panel-strong: #ffffff;
+        --line: rgba(0, 0, 0, 0.1);
+        --line-accent: rgba(255, 73, 49, 0.32);
+        --text: #000000;
+        --muted: #615b58;
+        --accent: #ff4931;
+        --accent-soft: #9e2d1e;
         --success: #49d6a2;
-        --danger: #ff9c9c;
-        --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+        --danger: #9e2d1e;
       }
 
       * {
@@ -33,30 +36,17 @@
       }
 
       html {
-        color-scheme: dark;
+        color-scheme: light;
       }
 
       body {
         margin: 0;
         min-height: 100vh;
-        font-family: "Montserrat", "Segoe UI", sans-serif;
+        font-family: "Instrument Sans", "Segoe UI", sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at top left, rgba(255, 138, 61, 0.2), transparent 24%),
-          radial-gradient(circle at 80% 10%, rgba(61, 111, 255, 0.16), transparent 28%),
-          linear-gradient(180deg, #091321 0%, #050b13 100%);
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        background-size: 42px 42px;
-        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 85%);
-        pointer-events: none;
+          radial-gradient(circle at top, rgba(255, 73, 49, 0.08), transparent 34%),
+          linear-gradient(180deg, #fbf8f6 0%, #f4f0ed 100%);
       }
 
       img {
@@ -77,7 +67,6 @@
         z-index: 1;
       }
 
-      .topbar,
       .hero,
       .section,
       .editor-panel,
@@ -85,40 +74,6 @@
         background: var(--panel);
         border: 1px solid var(--line);
         border-radius: 24px;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(16px);
-      }
-
-      .topbar {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        padding: 14px;
-      }
-
-      .brand-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .brand-mark {
-        width: 42px;
-        height: 42px;
-        padding: 9px;
-        border-radius: 14px;
-        border: 1px solid var(--line-accent);
-        background: linear-gradient(180deg, rgba(255, 138, 61, 0.18), rgba(255, 138, 61, 0.06));
-      }
-
-      .brand-wordmark {
-        width: 132px;
-      }
-
-      .topbar-copy {
-        color: var(--muted);
-        font-size: 0.88rem;
-        line-height: 1.5;
       }
 
       .chip-row {
@@ -142,7 +97,7 @@
         padding: 10px 12px;
         border-radius: 999px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--panel-soft);
         color: var(--muted);
         font-size: 0.82rem;
         font-weight: 600;
@@ -155,20 +110,6 @@
       .hero {
         margin-top: 12px;
         padding: 18px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .hero::after {
-        content: "";
-        position: absolute;
-        right: -80px;
-        top: -80px;
-        width: 220px;
-        height: 220px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 138, 61, 0.28), transparent 70%);
-        pointer-events: none;
       }
 
       .eyebrow {
@@ -190,8 +131,8 @@
       h2,
       h3 {
         margin: 0;
-        font-family: "Vollkorn", Georgia, serif;
-        font-weight: 600;
+        font-family: "Plus Jakarta Sans", "Instrument Sans", sans-serif;
+        font-weight: 800;
         letter-spacing: -0.02em;
       }
 
@@ -226,6 +167,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        gap: 6px;
         min-height: 48px;
         padding: 12px 14px;
         border-radius: 999px;
@@ -237,14 +179,13 @@
 
       .hero-button.primary,
       .action.primary {
-        background: linear-gradient(135deg, var(--accent), var(--accent-soft));
-        color: #1d1004;
-        box-shadow: 0 10px 22px rgba(255, 138, 61, 0.2);
+        background: var(--accent);
+        color: #ffffff;
       }
 
       .hero-button.secondary,
       .action.secondary {
-        background: rgba(255, 255, 255, 0.04);
+        background: #ffffff;
         border-color: var(--line);
         color: var(--text);
       }
@@ -266,7 +207,7 @@
         padding: 14px;
         border-radius: 18px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--panel-soft);
       }
 
       .stat strong {
@@ -320,11 +261,12 @@
 
       .lesson-card {
         flex: 0 0 88%;
+        max-width: 360px;
         scroll-snap-align: start;
         padding: 16px;
         border-radius: 22px;
         border: 1px solid var(--line);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
+        background: var(--panel);
         text-align: left;
         color: var(--text);
         cursor: pointer;
@@ -332,9 +274,17 @@
 
       .lesson-card.active {
         border-color: var(--line-accent);
-        background:
-          linear-gradient(180deg, rgba(255, 138, 61, 0.12), rgba(255, 138, 61, 0.03)),
-          rgba(255, 255, 255, 0.03);
+        background: #fff3ef;
+      }
+
+      .lesson-card.completed {
+        border-color: rgba(73, 214, 162, 0.45);
+        background: rgba(73, 214, 162, 0.12);
+      }
+
+      .lesson-card.active.completed {
+        border-color: rgba(73, 214, 162, 0.65);
+        background: rgba(73, 214, 162, 0.16);
       }
 
       .lesson-topline {
@@ -349,10 +299,16 @@
         padding: 6px 10px;
         border-radius: 999px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--panel-soft);
         color: var(--muted);
         font-size: 0.74rem;
         font-weight: 700;
+      }
+
+      .lesson-tag.done {
+        border-color: rgba(73, 214, 162, 0.3);
+        background: rgba(73, 214, 162, 0.18);
+        color: #177a59;
       }
 
       .lesson-card strong {
@@ -368,6 +324,24 @@
         line-height: 1.55;
       }
 
+      @media (min-width: 900px) {
+        .lesson-card {
+          flex-basis: 260px;
+          max-width: 260px;
+          padding: 14px;
+        }
+
+        .lesson-card strong {
+          font-size: 0.95rem;
+          margin-bottom: 6px;
+        }
+
+        .lesson-card p {
+          font-size: 0.82rem;
+          line-height: 1.45;
+        }
+      }
+
       .editor-panel {
         margin-top: 12px;
         padding: 16px;
@@ -376,33 +350,7 @@
       .lesson-meta {
         display: grid;
         gap: 12px;
-      }
-
-      .meta-row {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .meta-pill {
-        padding: 12px;
-        border-radius: 18px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .meta-pill small {
-        display: block;
-        margin-bottom: 6px;
-        color: var(--muted);
-        font-size: 0.74rem;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-      }
-
-      .meta-pill strong {
-        display: block;
-        font-size: 0.96rem;
+        padding: 2px 2px 0;
       }
 
       .meta {
@@ -411,40 +359,118 @@
         line-height: 1.65;
       }
 
-      .toolbar {
-        position: sticky;
-        bottom: 10px;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        margin-top: 16px;
-        padding: 12px;
-        border-radius: 22px;
-        border: 1px solid var(--line);
-        background: rgba(7, 17, 29, 0.9);
-        backdrop-filter: blur(14px);
+      .story-step {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0;
+        text-transform: none;
       }
 
-      .toolbar .action {
-        width: 100%;
+      .action-icon {
+        flex: 0 0 auto;
+        font-size: 0.88rem;
+        line-height: 1;
       }
 
-      .toolbar .wide {
-        grid-column: span 2;
+      .action-label {
+        white-space: nowrap;
+      }
+
+      .utility-actions {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 8px;
+      }
+
+      .utility-button {
+        appearance: none;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: var(--muted);
+        font-size: 0.74rem;
+        font-weight: 700;
+        cursor: pointer;
       }
 
       .editor-wrap {
         margin-top: 14px;
       }
 
-      .editor-label,
-      .panel-label {
+      .editor-workspace {
+        margin-top: 10px;
+      }
+
+      .editor-shell {
+        position: relative;
+        min-height: 320px;
+        border-radius: 22px;
+        border: 1px solid #1d2a43;
+        background:
+          radial-gradient(circle at top right, rgba(255, 73, 49, 0.12), transparent 28%),
+          linear-gradient(180deg, #13203a 0%, #0d1729 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.04),
+          0 10px 28px rgba(8, 15, 28, 0.18);
+        overflow: hidden;
+      }
+
+      .editor-shell::before {
+        content: "TypeScript";
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        color: rgba(201, 214, 255, 0.42);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        pointer-events: none;
+      }
+
+      .editor-highlight,
+      .editor {
+        margin: 0;
+        width: 100%;
+        min-height: 320px;
+        padding: 18px 16px;
+        font: 15px/1.65 "SFMono-Regular", "Menlo", "Consolas", monospace;
+        white-space: pre-wrap;
+        word-break: break-word;
+        tab-size: 2;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      .editor-highlight {
+        color: #d7e2ff;
+        pointer-events: none;
+        overflow: auto;
+      }
+
+      .editor-label {
         display: flex;
         justify-content: space-between;
         gap: 10px;
         align-items: center;
         margin-bottom: 10px;
+      }
+
+      .panel-label {
+        display: grid;
+        gap: 4px;
+        margin-bottom: 10px;
+      }
+
+      .panel-label h3 {
+        margin: 0;
+      }
+
+      .panel-label .summary {
+        max-width: 34ch;
+        line-height: 1.5;
       }
 
       .editor-help {
@@ -453,36 +479,341 @@
       }
 
       .editor {
-        width: 100%;
-        min-height: 320px;
-        padding: 16px;
-        border-radius: 22px;
-        border: 1px solid var(--line);
-        background: var(--panel-strong);
-        color: #edf4fb;
+        position: absolute;
+        inset: 0;
+        border: none;
+        background: transparent;
+        color: transparent;
+        caret-color: #ffb5a9;
         resize: vertical;
-        font: 16px/1.65 "SFMono-Regular", "Menlo", "Consolas", monospace;
-        -webkit-text-size-adjust: 100%;
+        overflow: auto;
+        z-index: 1;
       }
 
       .editor:focus {
-        outline: 1px solid rgba(255, 138, 61, 0.4);
-        border-color: rgba(255, 138, 61, 0.5);
+        outline: none;
+      }
+
+      .editor-shell:focus-within {
+        border-color: rgba(255, 138, 61, 0.55);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.04),
+          0 0 0 1px rgba(255, 138, 61, 0.18),
+          0 14px 32px rgba(8, 15, 28, 0.22);
+      }
+
+      .editor-token-comment {
+        color: #6b7fa5;
+      }
+
+      .editor-token-keyword {
+        color: #ff8a7f;
+      }
+
+      .editor-token-type {
+        color: #7ad8ff;
+      }
+
+      .editor-token-string {
+        color: #9ae67f;
+      }
+
+      .editor-token-number {
+        color: #ffd27a;
+      }
+
+      .editor-token-function {
+        color: #ffd27a;
+      }
+
+      .editor-token-variable {
+        color: #d7e2ff;
+        font-weight: 700;
+      }
+
+      .editor-token-operator {
+        color: #ffb5a9;
       }
 
       .note {
-        margin: 12px 0 0;
+        margin: 14px 0 0;
         padding: 14px;
         border-radius: 18px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--line-accent);
+        background: #fff3ef;
         font-size: 0.9rem;
         line-height: 1.6;
+      }
+
+      .note strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+
+      .note span {
+        display: block;
+      }
+
+      .note code {
+        padding: 1px 5px;
+        border-radius: 6px;
+        background: rgba(255, 73, 49, 0.08);
+        font-family: "SFMono-Regular", "Menlo", "Consolas", monospace;
+        font-size: 0.86em;
+      }
+
+      .note .expectation {
+        margin-top: 8px;
+      }
+
+      .explainer-panel {
+        margin-top: 12px;
+        padding: 0;
+        border: none;
+        background: transparent;
+      }
+
+      .explainer-summary {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .explainer-content {
+        display: grid;
+        gap: 14px;
+        margin-top: 10px;
+      }
+
+      .explainer-intro {
+        margin: 0;
+        color: var(--text);
+        font-size: 0.94rem;
+        line-height: 1.7;
+      }
+
+      .explainer-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .explainer-block {
+        padding: 0;
+        border: none;
+        background: transparent;
+      }
+
+      .explainer-block strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.8rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .explainer-block p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+
+      .explainer-block code,
+      .explainer-intro code {
+        padding: 1px 5px;
+        border-radius: 6px;
+        background: rgba(255, 73, 49, 0.08);
+        font-family: "SFMono-Regular", "Menlo", "Consolas", monospace;
+        font-size: 0.86em;
+      }
+
+      .story-panel {
+        margin-top: 12px;
+        padding: 0;
+        border: none;
+        background: transparent;
+      }
+
+      .story-title {
+        margin: 0 0 8px;
+        font-family: "Plus Jakarta Sans", "Instrument Sans", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .story-copy,
+      .story-bridge {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.7;
+      }
+
+      .story-bridge {
+        margin-top: 8px;
+        padding-left: 12px;
+        border-left: 2px solid rgba(255, 73, 49, 0.2);
+        color: var(--text);
+      }
+
+      .story-links {
+        display: grid;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .story-link-card {
+        padding: 0;
+        border: none;
+        background: transparent;
+      }
+
+      .story-link-card strong {
+        display: block;
+        margin-bottom: 3px;
+        font-size: 0.8rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .story-link-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.62;
+      }
+
+      .coach-panel {
+        margin-top: 12px;
+        padding: 0;
+        border: none;
+        background: transparent;
+      }
+
+      .learning-steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .learning-step {
+        padding: 10px;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: var(--panel-soft);
+      }
+
+      .learning-step strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.78rem;
+      }
+
+      .learning-step span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.45;
+      }
+
+      .coach-grid {
+        display: grid;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .coach-card {
+        padding: 0;
+        border: none;
+        background: transparent;
+      }
+
+      .coach-card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.84rem;
+      }
+
+      .coach-card.output-card strong {
+        margin-bottom: 10px;
+      }
+
+      .coach-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.6;
+      }
+
+      .spotlight-code {
+        margin: 0 0 8px;
+        padding: 12px;
+        border-radius: 12px;
+        background: rgba(17, 27, 44, 0.04);
+        border: none;
+        overflow: auto;
+        white-space: pre-wrap;
+        font: 14px/1.55 "SFMono-Regular", "Menlo", "Consolas", monospace;
+      }
+
+      .coach-output-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-top: 0;
+        margin-bottom: 8px;
+      }
+
+      .insight-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .insight-card {
+        padding: 12px 13px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: var(--panel-soft);
+      }
+
+      .insight-card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.84rem;
+      }
+
+      .insight-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 620px) {
+        .learning-steps {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
 
       .panel {
         margin-top: 12px;
         padding: 14px;
+        transition: border-color 180ms ease, background-color 180ms ease;
+      }
+
+      .panel.flash {
+        border-color: var(--line-accent);
+        background: #fff7f4;
+      }
+
+      .coach-card.flash {
+        border-color: var(--line-accent);
+        background: #fff7f4;
       }
 
       .output {
@@ -495,6 +826,12 @@
         overflow: auto;
         white-space: pre-wrap;
         font: 14px/1.65 "SFMono-Regular", "Menlo", "Consolas", monospace;
+      }
+
+      .output.success {
+        border-color: rgba(73, 214, 162, 0.34);
+        background: rgba(73, 214, 162, 0.1);
+        color: #146c4d;
       }
 
       .status,
@@ -520,7 +857,7 @@
         padding: 13px 14px;
         border-radius: 18px;
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--panel-soft);
       }
 
       .test-item.pass {
@@ -550,160 +887,455 @@
         .app {
           padding: 18px 18px 34px;
         }
+      }
 
-        .topbar {
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 12px;
+        background: #f4f0ed;
+      }
+
+      .app {
+        width: min(100%, 430px);
+        height: 100dvh;
+        max-height: 920px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow: hidden;
+        border-radius: 24px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        background: #ffffff;
+        box-shadow: 0 14px 34px rgba(39, 28, 18, 0.08);
+        animation: app-enter 380ms ease;
+      }
+
+      @keyframes app-enter {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
         }
 
-        .topbar-copy {
-          max-width: 38ch;
-        }
-
-        .hero {
-          padding: 24px;
-        }
-
-        .hero-grid {
-          display: grid;
-          grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-          gap: 18px;
-        }
-
-        .hero-side {
-          display: grid;
-          gap: 12px;
-        }
-
-        .signal-card {
-          padding: 18px;
-          border-radius: 22px;
-          border: 1px solid var(--line);
-          background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02)),
-            linear-gradient(135deg, rgba(255, 138, 61, 0.06), transparent 46%);
-        }
-
-        .signal-card strong {
-          display: block;
-          margin-bottom: 8px;
-        }
-
-        .signal-card p,
-        .signal-card li {
-          color: var(--muted);
-          font-size: 0.9rem;
-          line-height: 1.6;
-        }
-
-        .signal-list {
-          margin: 12px 0 0;
-          padding: 0;
-          list-style: none;
-          display: grid;
-          gap: 9px;
-        }
-
-        .signal-list li {
-          display: flex;
-          gap: 10px;
-          align-items: flex-start;
-        }
-
-        .signal-dot {
-          width: 9px;
-          height: 9px;
-          margin-top: 5px;
-          flex: none;
-          border-radius: 50%;
-          background: linear-gradient(180deg, var(--accent), var(--accent-soft));
-        }
-
-        .hero-actions {
-          display: flex;
-          flex-wrap: wrap;
-        }
-
-        .section {
-          padding: 18px;
-        }
-
-        .lesson-card {
-          flex-basis: 320px;
-        }
-
-        .editor-panel {
-          padding: 18px;
-        }
-
-        .toolbar {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-
-        .toolbar .wide {
-          grid-column: span 1;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
 
-      @media (min-width: 1024px) {
-        .app {
-          width: min(1180px, calc(100% - 40px));
-          padding-inline: 0;
+      .hero {
+        display: none;
+      }
+
+      .section {
+        margin-top: 0;
+        padding: 14px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+      }
+
+      .section > .section-kicker,
+      .section > h2,
+      .section > .section-copy {
+        display: none;
+      }
+
+      .lesson-and-editor {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+
+      .editor-panel {
+        margin-top: 10px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+      }
+
+      .lesson-meta {
+        display: grid;
+        gap: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .lesson-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        min-width: 0;
+      }
+
+      .exercise-nav {
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr) 38px;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .exercise-nav-button {
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        background: #fbfaf9;
+        color: var(--text);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+      }
+
+      .exercise-nav-button:hover:not(:disabled) {
+        border-color: rgba(255, 73, 49, 0.24);
+      }
+
+      .exercise-nav-button:disabled {
+        cursor: default;
+        opacity: 0.4;
+      }
+
+      .exercise-current {
+        min-width: 0;
+        padding: 8px 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 73, 49, 0.12);
+        background: #fff7f4;
+        display: grid;
+        gap: 2px;
+      }
+
+      .exercise-current-label {
+        color: var(--muted);
+        font-size: 0.62rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .exercise-current-title {
+        font-size: 0.72rem;
+        font-weight: 700;
+        line-height: 1.22;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .section-kicker {
+        display: inline-flex;
+        width: fit-content;
+        flex: 0 0 auto;
+        padding: 4px 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 73, 49, 0.16);
+        background: rgba(255, 73, 49, 0.07);
+        font-size: 0.64rem;
+        letter-spacing: 0.06em;
+      }
+
+      .lesson-meta h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+        min-width: 0;
+        font-size: 1.05rem;
+        line-height: 1.08;
+      }
+
+      .stage-tabs {
+        display: none;
+      }
+
+      .stage-tab {
+        min-height: 38px;
+        padding: 8px 6px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: var(--panel-soft);
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .stage-tab.active {
+        border-color: var(--line-accent);
+        background: #fff3ef;
+        color: var(--text);
+      }
+
+      .stage-stack {
+        margin-top: 10px;
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .wizard-stage {
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+        min-height: 0;
+        overflow: auto;
+        padding-right: 2px;
+        scrollbar-width: none;
+      }
+
+      .wizard-stage.active {
+        display: flex;
+        animation: stage-enter 220ms ease;
+      }
+
+      .wizard-stage::-webkit-scrollbar {
+        display: none;
+      }
+
+      @keyframes stage-enter {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
         }
 
-        .lesson-and-editor {
-          display: grid;
-          grid-template-columns: 360px minmax(0, 1fr);
-          gap: 12px;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        .section {
-          margin-top: 16px;
-        }
+      .story-panel,
+      .explainer-panel,
+      .coach-panel,
+      .panel {
+        margin-top: 0;
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: none;
+        background: #fbfaf9;
+      }
 
-        .editor-panel {
-          margin-top: 16px;
-        }
+      .story-panel,
+      .explainer-panel,
+      .coach-panel {
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
 
-        .hero {
-          margin-top: 16px;
-        }
+      .explainer-link {
+        margin: 2px 0 0;
+      }
 
-        .lesson-rail {
-          display: grid;
-          overflow: visible;
-          gap: 10px;
-        }
+      .explainer-link a {
+        color: var(--accent-soft);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
 
-        .lesson-card {
-          flex: none;
-        }
+      .explainer-link a:hover {
+        text-decoration: underline;
+      }
+
+      .story-links,
+      .explainer-content,
+      .insight-grid,
+      .test-list,
+      .coach-grid {
+        gap: 8px;
+      }
+
+      .learning-steps {
+        gap: 6px;
+      }
+
+      .editor-wrap {
+        margin-top: 0;
+      }
+
+      .editor-shell {
+        min-height: 184px;
+      }
+
+      .editor-highlight,
+      .editor {
+        min-height: 0;
+        height: 184px;
+        font-size: 15px;
+        padding: 14px 12px;
+      }
+
+      .output {
+        min-height: 96px;
+        max-height: 132px;
+        padding: 12px;
+        border-radius: 16px;
+      }
+
+      .wizard-nav {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        min-height: 42px;
+      }
+
+      .wizard-nav .action {
+        min-height: 40px;
+        padding: 8px 10px;
+        border-radius: 18px;
+        justify-content: space-between;
+        font-size: 0.78rem;
+      }
+
+      .wizard-nav .action.icon-only {
+        width: 42px;
+        min-width: 42px;
+        padding: 0;
+        justify-content: center;
+      }
+
+      .wizard-nav .action.icon-only .action-label {
+        display: none;
+      }
+
+      .footer-actions {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        min-width: 0;
+        max-width: calc(100% - 108px);
+      }
+
+      .footer-actions[hidden] {
+        display: none;
+      }
+
+      .footer-actions .action {
+        min-height: 38px;
+        padding: 7px 10px;
+        border-radius: 16px;
+        font-size: 0.74rem;
+      }
+
+      .brand-intro {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 8px;
+      }
+
+      .brand-mark {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .brand-mark img {
+        width: 44px;
+        height: auto;
+        flex: 0 0 auto;
+      }
+
+      .brand-copy {
+        min-width: 0;
+      }
+
+      .brand-copy h1 {
+        margin: 0;
+        font-size: 0.88rem;
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+
+      .brand-link {
+        margin-left: auto;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .brand-link:hover {
+        border-color: rgba(255, 73, 49, 0.2);
+        color: var(--text);
+      }
+
+      .lesson-tools {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .mini-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        background: #fbfaf9;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.7rem;
+        font-weight: 700;
+      }
+
+      .mini-link:hover {
+        border-color: rgba(255, 73, 49, 0.2);
+        color: var(--text);
+      }
+
+      .footer {
+        display: none;
       }
     </style>
   </head>
   <body>
     <main class="app">
-      <header class="topbar">
-        <div class="brand-row">
-          <div class="brand-mark">
-            <img src="./tvl-tech-logo.svg" alt="TVL Tech logo" />
-          </div>
-          <img class="brand-wordmark" src="./tvl-tech-wordmark.svg" alt="TVL Tech" />
-        </div>
-        <div class="topbar-copy">
-          Mobile-first training for managers: short lessons, direct editing, and instant tests.
-        </div>
-      </header>
-
       <section class="hero">
         <div class="hero-grid">
           <div>
-            <span class="eyebrow">Phone-first training lab</span>
-            <h1>Learn code in small moves</h1>
+            <span class="eyebrow">TVL Tech Luxembourg</span>
+            <h1>Learn TypeScript in short lessons</h1>
             <p class="hero-copy">
-              Each lesson is short enough to complete on a phone. Read one idea,
-              change one line, press run, then use tests for quick feedback.
+              Each lesson explains one idea first, then asks for one small code
+              change so the logic is easier to understand.
             </p>
             <div class="hero-actions">
               <a class="hero-button primary" href="#training">Start the training</a>
@@ -711,16 +1343,16 @@
             </div>
             <div class="hero-stats">
               <div class="stat">
-                <strong>6</strong>
-                <span>micro-lessons and mini exercises</span>
+                <strong>7</strong>
+                <span>short lessons with an explainer before the code</span>
               </div>
               <div class="stat">
-                <strong>5m</strong>
+                <strong>4m</strong>
                 <span>average lesson length</span>
               </div>
               <div class="stat">
                 <strong>1 page</strong>
-                <span>read, write, run, test</span>
+                <span>learn, write, run, test</span>
               </div>
             </div>
           </div>
@@ -729,8 +1361,7 @@
             <div class="signal-card">
               <strong>Designed for phones</strong>
               <p>
-                Big tap targets, compact copy, a larger code area, and lessons that
-                fit into short attention windows instead of long workshops.
+                The layout is compact, readable, and easy to use on a phone.
               </p>
             </div>
             <div class="signal-card">
@@ -746,73 +1377,172 @@
       </section>
 
       <section class="section" id="training">
-        <div class="section-kicker">Step 1</div>
-        <h2>Pick a short lesson</h2>
-        <p class="section-copy">
-          Swipe through the cards on phone, or scan them on desktop. Start anywhere,
-          but Lesson 1 is the easiest entry point.
-        </p>
+        <div class="brand-intro">
+          <a class="brand-mark" href="https://www.tvl.tech/" aria-label="TVL Tech website" title="TVL Tech website">
+            <img src="tvl-tech-combined-logo.svg" alt="TVL Tech" />
+          </a>
+          <div class="brand-copy">
+            <h1>Programming Basics for Everyone</h1>
+          </div>
+          <a class="brand-link" href="wiki.html">Guide</a>
+        </div>
 
         <div class="lesson-and-editor">
-          <div>
-            <div class="lesson-rail" id="lesson-strip"></div>
-          </div>
-
           <section class="editor-panel">
             <div class="lesson-meta">
-              <div>
-                <div class="section-kicker">Step 2</div>
-                <h2 id="lesson-title">Lesson</h2>
-                <p class="meta" id="lesson-description"></p>
-              </div>
-              <div class="meta-row">
-                <div class="meta-pill">
-                  <small>Time</small>
-                  <strong id="lesson-time">5 min</strong>
+              <div class="exercise-nav" aria-label="Exercise navigation">
+                <button class="exercise-nav-button" id="previous-exercise-card" type="button" aria-label="Previous exercise" title="Previous exercise">
+                  <i class="icon-chevron-left action-icon" aria-hidden="true"></i>
+                </button>
+                <div class="exercise-current">
+                  <span class="exercise-current-label" id="current-exercise-count">Exercise 1 / 7</span>
+                  <span class="exercise-current-title" id="current-exercise-title">1. Set a value with const</span>
                 </div>
-                <div class="meta-pill">
-                  <small>Focus</small>
-                  <strong id="lesson-focus">Concept</strong>
+                <button class="exercise-nav-button" id="next-exercise-card" type="button" aria-label="Next exercise" title="Next exercise">
+                  <i class="icon-chevron-right action-icon" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="lesson-heading">
+                <h2 id="lesson-title">Learn one move</h2>
+                <div class="lesson-tools">
+                  <a class="mini-link" id="lesson-guide-link" href="wiki.html">Guide</a>
+                  <div class="section-kicker" id="current-stage-label">Story</div>
                 </div>
               </div>
             </div>
+            <div class="stage-tabs" id="stage-tabs"></div>
 
-            <div class="toolbar">
-              <button class="action primary" id="run-button" type="button">Run code</button>
-              <button class="action secondary" id="test-button" type="button">Run tests</button>
-              <button class="action secondary wide" id="prev-button" type="button">Previous</button>
-              <button class="action secondary wide" id="next-button" type="button">Next lesson</button>
-              <button class="action ghost wide" id="reset-button" type="button">Reset</button>
-              <button class="action ghost wide" id="solution-button" type="button">Show solution</button>
+            <div class="stage-stack">
+              <section class="wizard-stage" data-stage="story">
+                <section class="story-panel" aria-labelledby="story-heading">
+                  <div class="panel-label">
+                    <h3 id="story-heading">Scenario</h3>
+                    <p class="summary">One small example that makes the concept concrete.</p>
+                  </div>
+                  <h4 class="story-title" id="story-title">A simple work scene</h4>
+                  <p class="story-copy" id="story-copy"></p>
+                  <p class="story-bridge" id="story-bridge"></p>
+                  <div class="story-links">
+                    <div class="story-link-card">
+                      <strong>What this step does</strong>
+                      <p id="story-from"></p>
+                    </div>
+                    <div class="story-link-card">
+                      <strong>What comes next</strong>
+                      <p id="story-next"></p>
+                    </div>
+                  </div>
+                </section>
+
+                <p class="note" id="lesson-prompt">
+                  <strong>Mission</strong>
+                  <span>Make one small change, then press Run.</span>
+                </p>
+              </section>
+
+              <section class="wizard-stage" data-stage="learn">
+                <section class="explainer-panel" aria-labelledby="explainer-heading">
+                  <div class="panel-label">
+                    <h3 id="explainer-heading">Before you code</h3>
+                    <p class="explainer-summary" id="explainer-summary">
+                      A short explanation of the idea in this lesson.
+                    </p>
+                  </div>
+                  <div class="explainer-content" id="explainer-content"></div>
+                </section>
+
+                <section class="coach-panel" aria-labelledby="coach-heading">
+                  <div class="panel-label">
+                    <h3 id="coach-heading">Focus line</h3>
+                    <p class="summary">Notice one exact line before you edit anything.</p>
+                  </div>
+                  <div class="coach-card">
+                    <strong>Look at this line</strong>
+                    <pre class="spotlight-code" id="spotlight-code"></pre>
+                    <p id="spotlight-copy"></p>
+                  </div>
+                </section>
+              </section>
+
+              <section class="wizard-stage" data-stage="code">
+                <section class="coach-panel">
+                  <div class="coach-card output-card" id="output-panel">
+                    <div class="panel-label coach-output-head">
+                      <h3>Result</h3>
+                      <p class="status" id="status"></p>
+                    </div>
+                    <pre class="output" id="output">Press "Run code" to see the result.</pre>
+                  </div>
+                </section>
+              </section>
+
+              <section class="wizard-stage" data-stage="check">
+                <section class="panel">
+                  <div class="panel-label">
+                    <h3>Tests</h3>
+                    <p class="summary" id="test-summary">Press "Run tests" to validate the code.</p>
+                  </div>
+                  <div class="test-list" id="test-list"></div>
+                </section>
+
+                <section class="panel" id="insight-panel">
+                  <div class="panel-label">
+                    <h3>Why it happened</h3>
+                    <p class="summary" id="insight-summary">
+                      Run the code once to unlock the explanation.
+                    </p>
+                  </div>
+                  <div class="insight-grid" id="insight-grid"></div>
+                </section>
+              </section>
             </div>
 
-            <div class="editor-wrap">
-              <div class="editor-label">
-                <h3>Code</h3>
-                <span class="editor-help">Tap, edit, run.</span>
+            <div class="editor-workspace" id="editor-workspace" hidden>
+              <div class="editor-wrap">
+                <div class="editor-label">
+                  <h3>Code</h3>
+                  <div class="lesson-tools">
+                    <span class="editor-help">Tap, edit, run.</span>
+                    <a class="mini-link" id="editor-guide-link" href="wiki.html">Guide</a>
+                  </div>
+                </div>
+                <div class="editor-shell">
+                  <pre class="editor-highlight" id="editor-highlight" aria-hidden="true"></pre>
+                  <textarea class="editor" id="editor" spellcheck="false"></textarea>
+                </div>
               </div>
-              <textarea class="editor" id="editor" spellcheck="false"></textarea>
+              <div class="utility-actions">
+                <button class="utility-button" id="reset-button" type="button" aria-label="Reset lesson">
+                  Reset
+                </button>
+                <button class="utility-button" id="solution-button" type="button" aria-label="Show solution">
+                  Show solution
+                </button>
+              </div>
             </div>
 
-            <p class="note" id="lesson-prompt"></p>
+            <div class="wizard-nav">
+              <button class="action secondary icon-only" id="prev-button" type="button" aria-label="Back" title="Back">
+                <i class="icon-chevron-left action-icon" aria-hidden="true"></i>
+                <span class="action-label">Back</span>
+              </button>
+              <div class="footer-actions" id="footer-actions" hidden>
+                <button class="action primary" id="run-button" type="button" aria-label="Run code">
+                  <i class="icon-play action-icon" aria-hidden="true"></i>
+                  <span class="action-label">Run</span>
+                </button>
+                <button class="action secondary" id="test-button" type="button" aria-label="Run tests">
+                  <i class="icon-flask-conical action-icon" aria-hidden="true"></i>
+                  <span class="action-label">Test</span>
+                </button>
+              </div>
+              <button class="action primary icon-only" id="next-button" type="button" aria-label="Next step" title="Next step">
+                <span class="action-label">Next step</span>
+                <i class="icon-chevron-right action-icon" aria-hidden="true"></i>
+              </button>
+            </div>
           </section>
         </div>
-      </section>
-
-      <section class="panel">
-        <div class="panel-label">
-          <h3>Output</h3>
-          <p class="status" id="status"></p>
-        </div>
-        <pre class="output" id="output">Press "Run code" to see the result.</pre>
-      </section>
-
-      <section class="panel">
-        <div class="panel-label">
-          <h3>Tests</h3>
-          <p class="summary" id="test-summary">Press "Run tests" to validate the code.</p>
-        </div>
-        <div class="test-list" id="test-list"></div>
       </section>
 
       <footer class="footer">
@@ -826,12 +1556,50 @@
       const lessons = [
         {
           id: "lesson-1",
-          title: "1. Save a value",
-          description: "Programming starts by naming information so you can use it again.",
+          guideAnchor: "variables",
+          title: "1. Set a value with const",
+          description: "You start a weekly review by storing the key facts you need.",
           time: "3 min",
           focus: "Variables",
-          cardCopy: "Edit a team name and a number. Watch the output change.",
-          prompt: "Mission: change the team name or project count, then run it again.",
+          cardCopy: "Set up the weekly review by saving the team name and project count.",
+          storyTitle: "Print the team name and project count",
+          storyCopy:
+            "This code prints two facts: a team name and a project count. The goal is to change one stored value and see the output update.",
+          storyBridge:
+            "A variable is just a named value. You store it once, then reuse it anywhere you need it.",
+          fromPrevious: "You are learning the most basic move in programming: save a value under a name.",
+          nextStep:
+            "Once values are stored, code can start making decisions with them.",
+          spotlightCode: 'const teamName: string = "Platform";',
+          spotlightCopy:
+            "This line creates a variable called teamName. Everything else that uses teamName will read whatever value is stored here.",
+          predictionPrompt:
+            'Before you run, what exact team line do you expect to see after changing "Platform" to "Sales"?',
+          predictionPlaceholder: "Example: Team: Sales",
+          predictionAnswer: "Team: Sales",
+          insight:
+            "You changed the value stored in the variable, so the output changed anywhere that variable was used.",
+          mentalModel:
+            "A variable is a named box. Change what is inside the box, and every place that reads from that box sees the new value.",
+          explainerSummary: "Variables are named boxes for information.",
+          explainerIntro:
+            'A variable gives a name to a value so you can reuse it later. In TypeScript, <code>const teamName = "Platform"</code> means "store this text under the name <code>teamName</code>."',
+          explainerBlocks: [
+            {
+              title: "What it is",
+              body: "A variable stores one value, like a team name, a budget number, or a true/false status."
+            },
+            {
+              title: "How it works",
+              body: "You create the variable once, then you can print it, compare it, or pass it into a function without rewriting the value."
+            },
+            {
+              title: "Why managers should care",
+              body: "Variables turn business facts into data your program can use: team size, blocked projects, priority, or owner."
+            }
+          ],
+          mission: 'Change <code>"Platform"</code> to <code>"Sales"</code> in <code>const teamName</code>.',
+          expectation: 'You should see <code>Team: Sales</code> in Output.',
           tests: [
             {
               name: "Logs the team label",
@@ -847,20 +1615,59 @@ const projects: number = 3;
 
 console.log("Team:", teamName);
 console.log("Projects:", projects);`,
-          solution: `const teamName: string = "Revenue";
-const projects: number = 2;
+          solution: `const teamName: string = "Sales";
+const projects: number = 3;
 
 console.log("Team:", teamName);
 console.log("Projects:", projects);`
         },
         {
           id: "lesson-2",
-          title: "2. Write a rule",
-          description: "An if statement turns a decision rule into code.",
+          guideAnchor: "if-statements",
+          title: "2. Make a decision with if",
+          description: "Now you decide whether the weekly review should flag a risk.",
           time: "4 min",
-          focus: "Conditionals",
-          cardCopy: "Use a small rule to show when attention is needed.",
-          prompt: "Mission: change the blocked count and see which message appears.",
+          focus: "If",
+          cardCopy: "Use one rule to decide whether the portfolio is on track.",
+          storyTitle: "Show one result or another",
+          storyCopy:
+            "This code checks one condition and prints one of two messages. The goal is to change the input and watch the rule pick a different result.",
+          storyBridge:
+            "An if statement is a rule: if the condition is true, do one thing, otherwise do another.",
+          fromPrevious:
+            "The previous step stored values. This step uses a value to choose a path.",
+          nextStep:
+            "After code can choose a path, it can also repeat a step many times.",
+          spotlightCode: "if (blockedProjects > 0) {",
+          spotlightCopy:
+            "This is the decision line. The program checks whether the condition is true before choosing which message to print.",
+          predictionPrompt:
+            "Before you run, which message do you think will appear after blockedProjects becomes 0?",
+          predictionPlaceholder: "Example: On track",
+          predictionAnswer: "On track",
+          insight:
+            "Changing the input changed the answer to the condition, so the program took the else branch instead of the first branch.",
+          mentalModel:
+            "An if statement is a fork in the road. The condition decides which path the program takes.",
+          explainerSummary: "An if statement checks a condition and picks a path.",
+          explainerIntro:
+            "Programs often need rules. An <code>if</code> statement asks a yes/no question and then runs different code depending on the answer.",
+          explainerBlocks: [
+            {
+              title: "What it is",
+              body: "An if statement is a decision. If the condition is true, the first block runs. If not, the else block runs."
+            },
+            {
+              title: "How it works",
+              body: "In this lesson, <code>blockedProjects > 0</code> is the question. If there are blocked projects, the program prints one message. Otherwise it prints another."
+            },
+            {
+              title: "Why managers should care",
+              body: "This is how business rules become code: if a project is blocked, escalate; if spend is over budget, warn; if risk is low, continue."
+            }
+          ],
+          mission: 'Change <code>const blockedProjects</code> from <code>1</code> to <code>0</code>.',
+          expectation: 'You should see <code>On track</code> in Output.',
           tests: [
             {
               name: "Shows one outcome",
@@ -887,41 +1694,193 @@ if (blockedProjects > 0) {
         },
         {
           id: "lesson-3",
-          title: "3. Reuse logic",
-          description: "A function is a reusable instruction with an input and an output.",
-          time: "5 min",
-          focus: "Functions",
-          cardCopy: "Write one small function for a weekly status line.",
-          prompt: "Mission: change the name passed into the function and run again.",
-          tests: [
+          guideAnchor: "while-loops",
+          title: "3. Repeat work with while",
+          description: "The team now works through open tasks until they are cleared.",
+          time: "4 min",
+          focus: "While",
+          cardCopy: "Watch repeated work happen until the queue is empty.",
+          storyTitle: "Repeat a step until the condition changes",
+          storyCopy:
+            "This code keeps printing while there are still open tasks left. The goal is to change how fast the number counts down.",
+          storyBridge:
+            "A while loop repeats the same block while its condition stays true.",
+          fromPrevious:
+            "The previous step chose between two paths. This step repeats one path over and over.",
+          nextStep:
+            "After code can repeat work, the next useful move is to package reusable logic into a function.",
+          spotlightCode: "while (openTasks > 0) {",
+          spotlightCopy:
+            "This line says: keep repeating the block as long as openTasks is greater than zero.",
+          predictionPrompt:
+            "Before you run, what do you expect to stay the same even after changing the loop from -1 to -2?",
+          predictionPlaceholder: "Example: It still ends with All tasks cleared",
+          predictionAnswer: "All tasks cleared",
+          insight:
+            "The loop still stops because openTasks keeps getting smaller. It just reaches zero faster, so you see fewer countdown lines.",
+          mentalModel:
+            "A while loop repeats until its condition becomes false. The important question is what changes inside the loop so it can eventually stop.",
+          explainerSummary: "A while loop keeps going until the condition becomes false.",
+          explainerIntro:
+            "A <code>while</code> loop is useful when you do not know the exact number of repeats in advance. It keeps checking a condition before every step.",
+          explainerBlocks: [
             {
-              name: "Keeps the function",
-              code: `assert(typeof makeGreeting === "function", "Expected makeGreeting to be a function");`
+              title: "What it is",
+              body: "A while loop repeats a block of code while some statement is still true."
             },
             {
-              name: "Returns a string",
-              code: `assert(typeof makeGreeting("Elena") === "string", "Expected a string result");`
+              title: "How it works",
+              body: "In this lesson, the loop runs while <code>openTasks > 0</code>. Each time through the loop, the number gets smaller, so eventually the loop stops."
+            },
+            {
+              title: "Why managers should care",
+              body: "Loops are how systems process repeated work such as tasks, approvals, reminders, or records in a list."
             }
           ],
-          starter: `function makeGreeting(name: string): string {
-  return \`Hello \${name}\`;
+          mission: 'Change <code>openTasks = openTasks - 1</code> to <code>openTasks = openTasks - 2</code>.',
+          expectation: 'You should still see <code>All tasks cleared</code>, but with fewer countdown lines before it.',
+          tests: [
+            {
+              name: "Starts from a number",
+              code: `assert(typeof openTasks === "number", "Expected openTasks to be a number");`
+            },
+            {
+              name: "Finishes the loop",
+              code: `assert(__testOutput.includes("All tasks cleared"), 'Expected "All tasks cleared" in the output');`
+            }
+          ],
+          starter: `let openTasks: number = 4;
+
+while (openTasks > 0) {
+  console.log("Tasks left:", openTasks);
+  openTasks = openTasks - 1;
 }
 
-console.log(makeGreeting("Elena"));`,
-          solution: `function makeGreeting(name: string): string {
-  return \`Hello \${name}\`;
+console.log("All tasks cleared");`,
+          solution: `let openTasks: number = 4;
+
+while (openTasks > 0) {
+  console.log("Tasks left:", openTasks);
+  openTasks = openTasks - 2;
 }
 
-console.log(makeGreeting("Diana"));`
+console.log("All tasks cleared");`
         },
         {
           id: "lesson-4",
-          title: "4. Work with a list",
-          description: "An array is a list. You can count it or loop through it.",
+          guideAnchor: "functions",
+          title: "4. Reuse logic with a function",
+          description: "You now turn a repeated status message into a reusable step.",
+          time: "5 min",
+          focus: "Functions",
+          cardCopy: "Reuse the same logic for different people in the update.",
+          storyTitle: "Write one reusable instruction",
+          storyCopy:
+            "This code defines one reusable function and calls it with a name. The goal is to keep the logic the same and change only the input.",
+          storyBridge:
+            "A function lets you write a step once and use it again with different values.",
+          fromPrevious:
+            "The previous step repeated code automatically. This step gives a useful block of code its own name.",
+          nextStep:
+            "After code can reuse one step, it becomes useful to store many values in one list.",
+          spotlightCode: "function makeStatusLine(name: string): string {",
+          spotlightCopy:
+            "This line defines a function. The name inside the parentheses is the input the function will use.",
+          predictionPrompt:
+            'Before you run, what status line do you expect after changing "Elena" to "Diana"?',
+          predictionPlaceholder: "Example: Weekly update for Diana",
+          predictionAnswer: "Weekly update for Diana",
+          insight:
+            "The function did not change. Only the input changed, so the same logic produced a different result.",
+          mentalModel:
+            "A function is a reusable machine. Put in a different input, and the same machine gives you a different output.",
+          explainerSummary: "A function is a named piece of reusable logic.",
+          explainerIntro:
+            "A function lets you write a step once and reuse it with different inputs. It helps you avoid repeating the same logic over and over.",
+          explainerBlocks: [
+            {
+              title: "What it is",
+              body: "A function takes input, does some work, and can return a result."
+            },
+            {
+              title: "How it works",
+              body: "Here, <code>makeStatusLine(name)</code> receives a name and returns a new string. Calling the function with a different name changes the result."
+            },
+            {
+              title: "Why managers should care",
+              body: "Functions are useful when a team uses the same rule or wording again and again, like report summaries, score calculations, or priority formulas."
+            }
+          ],
+          mission: 'Change <code>"Elena"</code> to <code>"Diana"</code> in <code>makeStatusLine("Elena")</code>.',
+          expectation: 'You should see <code>Weekly update for Diana</code> in Output.',
+          tests: [
+            {
+              name: "Keeps the function",
+              code: `assert(typeof makeStatusLine === "function", "Expected makeStatusLine to be a function");`
+            },
+            {
+              name: "Returns a string",
+              code: `assert(typeof makeStatusLine("Elena") === "string", "Expected a string result");`
+            }
+          ],
+          starter: `function makeStatusLine(name: string): string {
+  return \`Weekly update for \${name}\`;
+}
+
+console.log(makeStatusLine("Elena"));`,
+          solution: `function makeStatusLine(name: string): string {
+  return \`Weekly update for \${name}\`;
+}
+
+console.log(makeStatusLine("Diana"));`
+        },
+        {
+          id: "lesson-5",
+          guideAnchor: "arrays",
+          title: "5. Store a list in an array",
+          description: "The review now expands to a full list of people involved.",
           time: "5 min",
           focus: "Arrays",
-          cardCopy: "Add a person to the list and see the headcount update.",
-          prompt: "Mission: add one more name to the list, then run and test.",
+          cardCopy: "Add one more person to the list and watch the count change.",
+          storyTitle: "Store several values in one list",
+          storyCopy:
+            "This code stores several names in one array. The goal is to add one more item and see the count increase.",
+          storyBridge:
+            "An array is the simplest way to keep many related values together in order.",
+          fromPrevious:
+            "The previous step reused one instruction. This step stores several related values at once.",
+          nextStep:
+            "After code can store many values, the next move is to group different facts about one thing.",
+          spotlightCode: "console.log(\"Headcount:\", teamMembers.length);",
+          spotlightCopy:
+            "This line counts how many items are in the array by reading teamMembers.length.",
+          predictionPrompt:
+            'Before you run, what headcount line do you expect after adding "Sara" to the list?',
+          predictionPlaceholder: "Example: Headcount: 3",
+          predictionAnswer: "Headcount: 3",
+          insight:
+            "Adding one item made the array longer, so the length value increased and the headcount line changed.",
+          mentalModel:
+            "An array is a list. When you add an item, the list gets bigger, and anything counting the list sees the new total.",
+          explainerSummary: "An array stores several values in order.",
+          explainerIntro:
+            "When you have many related values, like team members or projects, you usually store them in an array instead of creating a separate variable for each one.",
+          explainerBlocks: [
+            {
+              title: "What it is",
+              body: "An array is a list. Each item has a position, starting from zero."
+            },
+            {
+              title: "How it works",
+              body: "This lesson uses <code>teamMembers.length</code> to count the list and <code>teamMembers[0]</code> to read the first person."
+            },
+            {
+              title: "Why managers should care",
+              body: "Lists are everywhere in business systems: customers, tasks, projects, risks, and approvals."
+            }
+          ],
+          mission: 'Add <code>"Sara"</code> to the <code>teamMembers</code> list.',
+          expectation: 'You should see <code>Headcount: 3</code> in Output.',
           tests: [
             {
               name: "Keeps a list",
@@ -932,23 +1891,62 @@ console.log(makeGreeting("Diana"));`
               code: `assert(teamMembers.length >= 2, "Expected at least two team members");`
             }
           ],
-          starter: `const teamMembers: string[] = ["Ana", "Mihai"];
+          starter: `const teamMembers: string[] = ["Diana", "Elena"];
 
 console.log("Headcount:", teamMembers.length);
 console.log(teamMembers[0]);`,
-          solution: `const teamMembers: string[] = ["Ana", "Mihai", "Sara"];
+          solution: `const teamMembers: string[] = ["Diana", "Elena", "Sara"];
 
 console.log("Headcount:", teamMembers.length);
 console.log(teamMembers[0]);`
         },
         {
-          id: "lesson-5",
-          title: "5. Model a project",
-          description: "An object groups a few related pieces of information together.",
+          id: "lesson-6",
+          guideAnchor: "objects",
+          title: "6. Group facts in an object",
+          description: "You now bring the project itself into the story as one record.",
           time: "5 min",
           focus: "Objects",
-          cardCopy: "Represent one project with fields like name and priority.",
-          prompt: "Mission: change the priority or blocked status and re-run.",
+          cardCopy: "Treat the project as one object with a few related facts.",
+          storyTitle: "Group related facts in one object",
+          storyCopy:
+            "This code describes one project with several fields. The goal is to change one field and see the object produce a different value.",
+          storyBridge:
+            "An object is a simple record: one thing, with several named facts inside it.",
+          fromPrevious:
+            "The previous step stored many values of the same kind. This step stores different facts about the same thing.",
+          nextStep:
+            "After code can describe real things with objects, the last move is to turn a rule into a final true/false decision.",
+          spotlightCode: 'priority: "high",',
+          spotlightCopy:
+            "This is one field inside the project object. Objects let you keep related values together under one name.",
+          predictionPrompt:
+            'Before you run, what priority value do you expect after changing "high" to "medium"?',
+          predictionPlaceholder: "Example: medium",
+          predictionAnswer: "medium",
+          insight:
+            "You changed one field inside the object, so reading project.priority now returns the new value.",
+          mentalModel:
+            "An object is a record. Each field stores one fact about the same thing, like a project or a task.",
+          explainerSummary: "An object groups related fields under one name.",
+          explainerIntro:
+            "An object helps you keep related values together. Instead of separate variables for project name, priority, and blocked status, you can group them in one object.",
+          explainerBlocks: [
+            {
+              title: "What it is",
+              body: "An object is a bundle of key-value pairs, such as name, owner, budget, or priority."
+            },
+            {
+              title: "How it works",
+              body: "In this lesson, <code>project.priority</code> reads one field from the larger <code>project</code> object."
+            },
+            {
+              title: "Why managers should care",
+              body: "Most business records are objects: a project, a customer, a hiring request, or a status update."
+            }
+          ],
+          mission: 'Change <code>priority: "high"</code> to <code>priority: "medium"</code>.',
+          expectation: 'You should see <code>medium</code> in Output.',
           tests: [
             {
               name: "Creates a project",
@@ -960,7 +1958,7 @@ console.log(teamMembers[0]);`
             }
           ],
           starter: `const project = {
-  name: "Portal refresh",
+  name: "Sales dashboard",
   priority: "high",
   blocked: false
 };
@@ -968,7 +1966,7 @@ console.log(teamMembers[0]);`
 console.log(project.name);
 console.log(project.priority);`,
           solution: `const project = {
-  name: "Portal refresh",
+  name: "Sales dashboard",
   priority: "medium",
   blocked: true
 };
@@ -977,25 +1975,64 @@ console.log(project.name);
 console.log(project.priority);`
         },
         {
-          id: "lesson-6",
-          title: "6. Mini challenge",
-          description: "Turn a business rule into code and let the tests confirm it.",
+          id: "lesson-7",
+          guideAnchor: "syntax-and-rules",
+          title: "7. Finish the story with a rule",
+          description: "You finish the story by encoding one real prioritization rule.",
           time: "6 min",
           focus: "Practice",
-          cardCopy: "Finish a prioritization rule for high-impact, low-effort work.",
-          prompt: "Mission: make strong opportunities return true and weak ones return false.",
+          cardCopy: "Translate the final portfolio rule into code.",
+          storyTitle: "Turn one business rule into code",
+          storyCopy:
+            "This final exercise combines the earlier ideas. The code receives data and should return true only when the rule is satisfied.",
+          storyBridge:
+            "This is the usual shape of code: take input, apply a rule, return an answer.",
+          fromPrevious:
+            "The previous steps introduced values, conditions, loops, functions, arrays, and objects. This step uses the most important ones together.",
+          nextStep:
+            "After this, you have seen the full beginner path: store values, make decisions, repeat, reuse, group, and check results.",
+          spotlightCode: "return false;",
+          spotlightCopy:
+            "This is the missing rule. Right now the function always returns false, which means nothing ever gets prioritized.",
+          predictionPrompt:
+            "Before you run, what result do you expect for the Analytics example once the rule is correct?",
+          predictionPlaceholder: "Example: true",
+          predictionAnswer: "true",
+          insight:
+            "Once the function returns a real rule instead of always false, the example can evaluate the initiative and produce the correct boolean result.",
+          mentalModel:
+            "This combines the earlier ideas: the object provides the data, the function applies the rule, and the result shows the decision.",
+          explainerSummary: "This combines variables, decision rules, and functions.",
+          explainerIntro:
+            "This final challenge asks you to read a business rule and translate it into code. The tests confirm whether the rule behaves the way you expect.",
+          explainerBlocks: [
+            {
+              title: "What to notice",
+              body: "The function receives an object, checks two conditions, and returns either true or false."
+            },
+            {
+              title: "How to think about it",
+              body: "Read the rule in plain English first: prioritize work when impact is high and effort is low."
+            },
+            {
+              title: "Why tests matter",
+              body: "Tests are fast examples. They show which cases should return true and which should return false."
+            }
+          ],
+          mission: 'Replace <code>return false;</code> with <code>return item.impact &gt;= 7 &amp;&amp; item.effort &lt;= 4;</code>.',
+          expectation: 'You should see <code>true</code> in Output and the tests should pass.',
           tests: [
             {
               name: "Prioritizes strong work",
               code: `assert(
-  shouldPrioritize({ name: "Growth", impact: 9, effort: 3 }) === true,
+  shouldPrioritize({ name: "Sales dashboard rollout", impact: 9, effort: 3 }) === true,
   "Expected strong work to return true"
 );`
             },
             {
               name: "Rejects weak work",
               code: `assert(
-  shouldPrioritize({ name: "Cleanup", impact: 2, effort: 7 }) === false,
+  shouldPrioritize({ name: "CRM cleanup", impact: 2, effort: 7 }) === false,
   "Expected weak work to return false"
 );`
             }
@@ -1011,7 +2048,7 @@ function shouldPrioritize(item: Initiative): boolean {
 }
 
 console.log(
-  shouldPrioritize({ name: "Analytics", impact: 8, effort: 3 })
+  shouldPrioritize({ name: "Sales dashboard automation", impact: 8, effort: 3 })
 );`,
           solution: `type Initiative = {
   name: string;
@@ -1024,35 +2061,86 @@ function shouldPrioritize(item: Initiative): boolean {
 }
 
 console.log(
-  shouldPrioritize({ name: "Analytics", impact: 8, effort: 3 })
+  shouldPrioritize({ name: "Sales dashboard automation", impact: 8, effort: 3 })
 );`
         }
       ];
 
       const state = {
-        activeId: lessons[0].id
+        activeId: lessons[0].id,
+        runCount: 0,
+        lastOutput: [],
+        stageIndex: 0,
+        hasRunCurrent: false,
+        hasTestedCurrent: false
+      };
+
+      const stageOrder = ["story", "learn", "code", "check"];
+      const stageLabels = {
+        story: "Story",
+        learn: "Concept",
+        code: "Try it",
+        check: "Review"
       };
 
       const editor = document.getElementById("editor");
+      const editorHighlight = document.getElementById("editor-highlight");
+      const editorWorkspace = document.getElementById("editor-workspace");
       const output = document.getElementById("output");
-      const lessonStrip = document.getElementById("lesson-strip");
+      const stageTabs = document.getElementById("stage-tabs");
+      const currentStageLabel = document.getElementById("current-stage-label");
       const lessonTitle = document.getElementById("lesson-title");
-      const lessonDescription = document.getElementById("lesson-description");
-      const lessonTime = document.getElementById("lesson-time");
-      const lessonFocus = document.getElementById("lesson-focus");
+      const lessonGuideLink = document.getElementById("lesson-guide-link");
+      const editorGuideLink = document.getElementById("editor-guide-link");
+      const previousExerciseCard = document.getElementById("previous-exercise-card");
+      const currentExerciseCount = document.getElementById("current-exercise-count");
+      const currentExerciseTitle = document.getElementById("current-exercise-title");
+      const nextExerciseCard = document.getElementById("next-exercise-card");
+      const storyTitle = document.getElementById("story-title");
+      const storyCopy = document.getElementById("story-copy");
+      const storyBridge = document.getElementById("story-bridge");
+      const storyFrom = document.getElementById("story-from");
+      const storyNext = document.getElementById("story-next");
       const lessonPrompt = document.getElementById("lesson-prompt");
+      const explainerSummary = document.getElementById("explainer-summary");
+      const explainerContent = document.getElementById("explainer-content");
+      const spotlightCode = document.getElementById("spotlight-code");
+      const spotlightCopy = document.getElementById("spotlight-copy");
+      const outputPanel = document.getElementById("output-panel");
+      const insightSummary = document.getElementById("insight-summary");
+      const insightGrid = document.getElementById("insight-grid");
       const status = document.getElementById("status");
       const testSummary = document.getElementById("test-summary");
       const testList = document.getElementById("test-list");
+      const footerActions = document.getElementById("footer-actions");
       const runButton = document.getElementById("run-button");
       const testButton = document.getElementById("test-button");
       const prevButton = document.getElementById("prev-button");
       const nextButton = document.getElementById("next-button");
       const resetButton = document.getElementById("reset-button");
       const solutionButton = document.getElementById("solution-button");
+      const wizardStages = Array.from(document.querySelectorAll(".wizard-stage"));
+      const guidePages = {
+        variables: "guide-variables.html",
+        "syntax-and-rules": "guide-syntax.html",
+        "if-statements": "guide-if-statements.html",
+        "while-loops": "guide-while-loops.html",
+        functions: "guide-functions.html",
+        arrays: "guide-arrays.html",
+        objects: "guide-objects.html",
+        tests: "guide-tests.html"
+      };
+
+      function getGuideHref(lesson) {
+        return guidePages[lesson.guideAnchor] || "wiki.html";
+      }
 
       function storageKey(id) {
         return `ts-for-managers:${id}`;
+      }
+
+      function completionKey(id) {
+        return `ts-for-managers:completed:${id}`;
       }
 
       function getLesson(id) {
@@ -1071,9 +2159,265 @@ console.log(
         window.localStorage.setItem(storageKey(id), code);
       }
 
+      function isLessonCompleted(id) {
+        return window.localStorage.getItem(completionKey(id)) === "true";
+      }
+
+      function setLessonCompleted(id, completed) {
+        if (completed) {
+          window.localStorage.setItem(completionKey(id), "true");
+        } else {
+          window.localStorage.removeItem(completionKey(id));
+        }
+      }
+
       function setStatus(message, kind = "") {
         status.textContent = message;
         status.className = `status ${kind}`.trim();
+      }
+
+      function escapeCodeHtml(value) {
+        return value
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      function highlightCode(code) {
+        const tokenPattern =
+          /\/\/[^\n]*|`[\s\S]*?`|"(?:\\.|[^"\\])*"|\b(?:const|let)\s+[A-Za-z_$][\w$]*|\bfunction\s+[A-Za-z_$][\w$]*|\b(?:const|let|function|return|if|else|while|for|true|false|type|interface|number|string|boolean|void)\b|\b(?:console|log|assert)\b|\b[A-Z][A-Za-z0-9_]*\b|\b\d+(?:\.\d+)?\b|[=:+\-*/<>!&|]+/g;
+        let html = "";
+        let lastIndex = 0;
+
+        for (const match of code.matchAll(tokenPattern)) {
+          const index = match.index ?? 0;
+          const value = match[0];
+          html += escapeCodeHtml(code.slice(lastIndex, index));
+
+          if (value.startsWith("//")) {
+            html += `<span class="editor-token-comment">${escapeCodeHtml(value)}</span>`;
+          } else if (value.startsWith('"') || value.startsWith("`")) {
+            html += `<span class="editor-token-string">${escapeCodeHtml(value)}</span>`;
+          } else if (/^(const|let)\s+/.test(value)) {
+            const [, keyword, variable] = value.match(/^(const|let)\s+([A-Za-z_$][\w$]*)$/) || [];
+            html += `<span class="editor-token-keyword">${keyword}</span> <span class="editor-token-variable">${variable}</span>`;
+          } else if (/^function\s+/.test(value)) {
+            const [, keyword, fnName] = value.match(/^(function)\s+([A-Za-z_$][\w$]*)$/) || [];
+            html += `<span class="editor-token-keyword">${keyword}</span> <span class="editor-token-function">${fnName}</span>`;
+          } else if (/^(const|let|function|return|if|else|while|for|true|false|type|interface|number|string|boolean|void)$/.test(value)) {
+            html += `<span class="editor-token-keyword">${escapeCodeHtml(value)}</span>`;
+          } else if (/^(console|log|assert)$/.test(value)) {
+            html += `<span class="editor-token-function">${escapeCodeHtml(value)}</span>`;
+          } else if (/^[A-Z][A-Za-z0-9_]*$/.test(value)) {
+            html += `<span class="editor-token-type">${escapeCodeHtml(value)}</span>`;
+          } else if (/^\d/.test(value)) {
+            html += `<span class="editor-token-number">${escapeCodeHtml(value)}</span>`;
+          } else if (/^[=:+\-*/<>!&|]+$/.test(value)) {
+            html += `<span class="editor-token-operator">${escapeCodeHtml(value)}</span>`;
+          } else {
+            html += escapeCodeHtml(value);
+          }
+
+          lastIndex = index + value.length;
+        }
+
+        html += escapeCodeHtml(code.slice(lastIndex));
+        return html || " ";
+      }
+
+      function syncEditorHighlight() {
+        editorHighlight.innerHTML = highlightCode(editor.value);
+        editorHighlight.scrollTop = editor.scrollTop;
+        editorHighlight.scrollLeft = editor.scrollLeft;
+      }
+
+      function renderMission(mission, expectation) {
+        lessonPrompt.innerHTML = `
+          <strong>Mission</strong>
+          <span>${mission}</span>
+          <span class="expectation"><strong>Expected result</strong>${expectation}</span>
+        `;
+      }
+
+      function renderExplainer(lesson) {
+        explainerSummary.textContent = lesson.explainerSummary;
+        explainerContent.innerHTML = `
+          <p class="explainer-intro">${lesson.explainerIntro}</p>
+          <div class="explainer-grid">
+            ${lesson.explainerBlocks
+              .slice(0, 2)
+              .map(
+                (block) => `
+                  <div class="explainer-block">
+                    <strong>${block.title}</strong>
+                    <p>${block.body}</p>
+                  </div>
+                `
+              )
+              .join("")}
+          </div>
+          <p class="explainer-link">
+            <a href="${getGuideHref(lesson)}">Read the guide for this concept</a>
+          </p>
+        `;
+      }
+
+      function renderStory(lesson) {
+        storyTitle.textContent = lesson.storyTitle;
+        storyCopy.textContent = lesson.storyCopy;
+        storyBridge.textContent = lesson.storyBridge;
+        storyFrom.textContent = lesson.fromPrevious;
+        storyNext.textContent = lesson.nextStep;
+      }
+
+      function renderGuideLinks(lesson) {
+        const href = getGuideHref(lesson);
+        lessonGuideLink.href = href;
+        editorGuideLink.href = href;
+      }
+
+      function renderExerciseNav() {
+        const lessonIndex = getLessonIndex(state.activeId);
+        const previousLesson = lessons[lessonIndex - 1];
+        const currentLesson = lessons[lessonIndex];
+        const nextLesson = lessons[lessonIndex + 1];
+
+        if (previousLesson) {
+          previousExerciseCard.disabled = false;
+          previousExerciseCard.dataset.lessonId = previousLesson.id;
+          previousExerciseCard.setAttribute("title", previousLesson.title);
+          previousExerciseCard.setAttribute("aria-label", `Previous exercise: ${previousLesson.title}`);
+        } else {
+          previousExerciseCard.disabled = true;
+          previousExerciseCard.dataset.lessonId = "";
+          previousExerciseCard.setAttribute("title", "First exercise");
+          previousExerciseCard.setAttribute("aria-label", "First exercise");
+        }
+
+        currentExerciseCount.textContent = `Exercise ${lessonIndex + 1} / ${lessons.length}`;
+        currentExerciseTitle.textContent = currentLesson.title;
+
+        if (nextLesson) {
+          nextExerciseCard.disabled = false;
+          nextExerciseCard.dataset.lessonId = nextLesson.id;
+          nextExerciseCard.setAttribute("title", nextLesson.title);
+          nextExerciseCard.setAttribute("aria-label", `Next exercise: ${nextLesson.title}`);
+        } else {
+          nextExerciseCard.disabled = true;
+          nextExerciseCard.dataset.lessonId = "";
+          nextExerciseCard.setAttribute("title", "Last exercise");
+          nextExerciseCard.setAttribute("aria-label", "Last exercise");
+        }
+      }
+
+      function renderStageTabs() {
+        stageTabs.innerHTML = "";
+
+        for (const [index, stage] of stageOrder.entries()) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "stage-tab";
+          if (index === state.stageIndex) {
+            button.classList.add("active");
+          }
+          button.textContent = stageLabels[stage];
+          button.addEventListener("click", () => {
+            state.stageIndex = index;
+            syncStageView();
+          });
+          stageTabs.appendChild(button);
+        }
+      }
+
+      function syncStageView() {
+        const activeStage = stageOrder[state.stageIndex];
+
+        for (const stage of wizardStages) {
+          stage.classList.toggle("active", stage.dataset.stage === activeStage);
+        }
+
+        editorWorkspace.hidden = !(activeStage === "code" || activeStage === "check");
+        currentStageLabel.textContent = stageLabels[activeStage];
+        syncFooterActions(activeStage);
+        renderStageTabs();
+        updateNavButtons();
+      }
+
+      function syncFooterActions(activeStage) {
+        const showRun = activeStage === "code";
+        const showTest =
+          activeStage === "check" || (activeStage === "code" && state.hasRunCurrent);
+
+        footerActions.hidden = !showRun && !showTest;
+        runButton.hidden = !showRun;
+        testButton.hidden = !showTest;
+
+        if (showRun && showTest) {
+          runButton.className = "action primary";
+          testButton.className = "action secondary";
+        } else if (showTest) {
+          testButton.className = "action primary";
+        } else {
+          testButton.className = "action secondary";
+        }
+      }
+
+      function renderCoach(lesson) {
+        spotlightCode.textContent = lesson.spotlightCode;
+        spotlightCopy.textContent = lesson.spotlightCopy;
+      }
+
+      function resetInsight() {
+        insightSummary.textContent = "Run the code once to unlock the explanation.";
+        insightGrid.innerHTML = "";
+      }
+
+      function escapeHtml(value) {
+        return value
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function renderInsight(lesson, outputLines) {
+        const body = outputLines.join("\n") || "(No output)";
+        insightSummary.textContent = "Look at the real result, then read the explanation.";
+        insightGrid.innerHTML = `
+          <div class="insight-card">
+            <strong>Actual output clue</strong>
+            <p>${escapeHtml(body).replace(/\n/g, "<br>")}</p>
+          </div>
+          <div class="insight-card">
+            <strong>What changed</strong>
+            <p>${lesson.insight}</p>
+          </div>
+          <div class="insight-card">
+            <strong>Mental model</strong>
+            <p>${lesson.mentalModel}</p>
+          </div>
+        `;
+      }
+
+      function revealResults() {
+        return;
+      }
+
+      function flashPanel(panel) {
+        panel.classList.remove("flash");
+        window.requestAnimationFrame(() => {
+          panel.classList.add("flash");
+          window.setTimeout(() => panel.classList.remove("flash"), 700);
+        });
+      }
+
+      function showOutput(lines) {
+        state.runCount += 1;
+        const body = lines.join("\n") || "(No output)";
+        output.textContent = body;
+        output.classList.add("success");
+        flashPanel(outputPanel);
       }
 
       function renderTestResults(results) {
@@ -1096,56 +2440,65 @@ console.log(
       }
 
       function updateNavButtons() {
-        const index = getLessonIndex(state.activeId);
-        prevButton.disabled = index === 0;
-        nextButton.disabled = index === lessons.length - 1;
-        prevButton.style.opacity = index === 0 ? "0.5" : "1";
-        nextButton.style.opacity = index === lessons.length - 1 ? "0.5" : "1";
-      }
+        const lessonIndex = getLessonIndex(state.activeId);
+        const atFirstScreen = lessonIndex === 0 && state.stageIndex === 0;
+        const atLastScreen =
+          lessonIndex === lessons.length - 1 && state.stageIndex === stageOrder.length - 1;
+        const needsRunBeforeCheck =
+          state.stageIndex === stageOrder.indexOf("code") && !state.hasRunCurrent;
+        const prevLabel = prevButton.querySelector(".action-label");
+        let prevText = "Back";
+        let nextText = "Next step";
 
-      function renderLessonCards() {
-        lessonStrip.innerHTML = "";
+        prevButton.disabled = atFirstScreen;
+        nextButton.disabled = atLastScreen || needsRunBeforeCheck;
+        prevButton.style.opacity = atFirstScreen ? "0.5" : "1";
+        nextButton.style.opacity = atLastScreen || needsRunBeforeCheck ? "0.5" : "1";
 
-        for (const lesson of lessons) {
-          const button = document.createElement("button");
-          button.type = "button";
-          button.className = "lesson-card";
-          if (lesson.id === state.activeId) {
-            button.classList.add("active");
-          }
-          button.innerHTML = `
-            <div class="lesson-topline">
-              <span class="lesson-tag">${lesson.time}</span>
-              <span class="lesson-tag">${lesson.focus}</span>
-            </div>
-            <strong>${lesson.title}</strong>
-            <p>${lesson.cardCopy}</p>
-          `;
-          button.addEventListener("click", () => selectLesson(lesson.id, true));
-          lessonStrip.appendChild(button);
+        prevText = state.stageIndex === 0 ? "Back" : "Prev step";
+        prevLabel.textContent = prevText;
+        prevButton.setAttribute("aria-label", prevText);
+        prevButton.setAttribute("title", prevText);
+
+        if (atLastScreen) {
+          nextText = "Done";
+        } else if (needsRunBeforeCheck) {
+          nextText = "Run first";
+        } else if (state.stageIndex === stageOrder.length - 1) {
+          nextText = "Next exercise";
+        } else if (state.stageIndex === stageOrder.indexOf("code")) {
+          nextText = "See feedback";
         }
+
+        nextButton.setAttribute("aria-label", nextText);
+        nextButton.setAttribute("title", nextText);
       }
 
-      function selectLesson(id, shouldScroll = false) {
+      function selectLesson(id, stageIndex = 0) {
         state.activeId = id;
+        state.stageIndex = stageIndex;
         const lesson = getLesson(id);
         const saved = getSavedCode(id);
 
         lessonTitle.textContent = lesson.title;
-        lessonDescription.textContent = lesson.description;
-        lessonTime.textContent = lesson.time;
-        lessonFocus.textContent = lesson.focus;
-        lessonPrompt.textContent = lesson.prompt;
+        renderGuideLinks(lesson);
+        renderStory(lesson);
+        renderMission(lesson.mission, lesson.expectation);
+        renderExplainer(lesson);
+        renderCoach(lesson);
         editor.value = saved || lesson.starter;
+        syncEditorHighlight();
+        state.runCount = 0;
+        state.lastOutput = [];
+        state.hasRunCurrent = false;
+        state.hasTestedCurrent = false;
         output.textContent = 'Press "Run code" to see the result.';
+        output.classList.remove("success");
+        resetInsight();
         renderTestResults([]);
         setStatus("Ready to run.", "ok");
-        renderLessonCards();
-        updateNavButtons();
-
-        if (shouldScroll) {
-          document.getElementById("training").scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        renderExerciseNav();
+        syncStageView();
       }
 
       function executeCode() {
@@ -1178,11 +2531,26 @@ console.log(
 
         try {
           const execution = executeCode();
-          output.textContent = execution.output.join("\n") || "(No output)";
-          setStatus("Code ran successfully.", "ok");
+          state.lastOutput = execution.output;
+          state.hasRunCurrent = true;
+          state.hasTestedCurrent = false;
+          state.stageIndex = stageOrder.indexOf("code");
+          showOutput(execution.output);
+          renderInsight(lesson, execution.output);
+          setStatus("Run complete.", "ok");
+          syncStageView();
+          revealResults();
         } catch (error) {
+          state.lastOutput = [];
+          state.hasRunCurrent = false;
+          state.hasTestedCurrent = false;
           output.textContent = "";
+          output.classList.remove("success");
+          resetInsight();
           setStatus(error.message, "error");
+          syncStageView();
+          flashPanel(outputPanel);
+          revealResults();
         }
       }
 
@@ -1192,7 +2560,11 @@ console.log(
 
         try {
           const execution = executeCode();
-          output.textContent = execution.output.join("\n") || "(No output)";
+          state.lastOutput = execution.output;
+          state.hasRunCurrent = true;
+          state.hasTestedCurrent = true;
+          showOutput(execution.output);
+          renderInsight(lesson, execution.output);
 
           const results = lesson.tests.map((test) => {
             try {
@@ -1233,12 +2605,25 @@ ${test.code}`;
           renderTestResults(results);
 
           if (results.every((result) => result.pass)) {
+            setLessonCompleted(lesson.id, true);
             setStatus("All tests passed.", "ok");
           } else {
+            setLessonCompleted(lesson.id, false);
             setStatus("Some tests failed. Keep going.", "error");
           }
+
+          state.stageIndex = stageOrder.indexOf("check");
+          renderExerciseNav();
+          syncStageView();
+          revealResults();
         } catch (error) {
+          setLessonCompleted(lesson.id, false);
+          state.lastOutput = [];
+          state.hasRunCurrent = false;
+          state.hasTestedCurrent = false;
           output.textContent = "";
+          output.classList.remove("success");
+          resetInsight();
           renderTestResults([
             {
               name: "Code compiles and runs",
@@ -1247,45 +2632,102 @@ ${test.code}`;
             }
           ]);
           setStatus("Fix the code first, then run the tests again.", "error");
+          renderExerciseNav();
+          syncStageView();
+          revealResults();
         }
       }
 
-      function moveLesson(direction) {
-        const index = getLessonIndex(state.activeId);
-        const nextIndex = index + direction;
+      function moveWizard(direction) {
+        if (direction < 0) {
+          if (state.stageIndex > 0) {
+            state.stageIndex -= 1;
+            syncStageView();
+            return;
+          }
 
-        if (nextIndex < 0 || nextIndex >= lessons.length) {
+          const lessonIndex = getLessonIndex(state.activeId);
+          if (lessonIndex > 0) {
+            selectLesson(lessons[lessonIndex - 1].id, stageOrder.length - 1);
+          }
           return;
         }
 
-        selectLesson(lessons[nextIndex].id, true);
+        if (state.stageIndex < stageOrder.length - 1) {
+          state.stageIndex += 1;
+          syncStageView();
+          return;
+        }
+
+        const lessonIndex = getLessonIndex(state.activeId);
+        if (lessonIndex < lessons.length - 1) {
+          selectLesson(lessons[lessonIndex + 1].id, 0);
+        }
       }
 
       function resetLesson() {
         const lesson = getLesson(state.activeId);
         editor.value = lesson.starter;
         setSavedCode(lesson.id, lesson.starter);
+        syncEditorHighlight();
         output.textContent = 'Press "Run code" to see the result.';
+        output.classList.remove("success");
+        state.lastOutput = [];
+        state.hasRunCurrent = false;
+        state.hasTestedCurrent = false;
+        setLessonCompleted(lesson.id, false);
+        resetInsight();
         renderTestResults([]);
+        state.runCount = 0;
         setStatus("Lesson reset.", "ok");
+        renderExerciseNav();
+        syncFooterActions(stageOrder[state.stageIndex]);
       }
 
       function showSolution() {
         const lesson = getLesson(state.activeId);
         editor.value = lesson.solution;
         setSavedCode(lesson.id, lesson.solution);
+        syncEditorHighlight();
+        state.hasRunCurrent = false;
+        state.hasTestedCurrent = false;
+        setLessonCompleted(lesson.id, false);
+        output.classList.remove("success");
         renderTestResults([]);
+        renderExerciseNav();
+        syncFooterActions(stageOrder[state.stageIndex]);
         setStatus("Solution loaded into the editor.", "ok");
       }
 
       runButton.addEventListener("click", runCode);
       testButton.addEventListener("click", runTests);
-      prevButton.addEventListener("click", () => moveLesson(-1));
-      nextButton.addEventListener("click", () => moveLesson(1));
+      prevButton.addEventListener("click", () => moveWizard(-1));
+      nextButton.addEventListener("click", () => moveWizard(1));
       resetButton.addEventListener("click", resetLesson);
       solutionButton.addEventListener("click", showSolution);
+      previousExerciseCard.addEventListener("click", () => {
+        const lessonId = previousExerciseCard.dataset.lessonId;
+        if (lessonId) {
+          selectLesson(lessonId, 0);
+        }
+      });
+      nextExerciseCard.addEventListener("click", () => {
+        const lessonId = nextExerciseCard.dataset.lessonId;
+        if (lessonId) {
+          selectLesson(lessonId, 0);
+        }
+      });
+      editor.addEventListener("scroll", syncEditorHighlight);
       editor.addEventListener("input", () => {
         setSavedCode(state.activeId, editor.value);
+        syncEditorHighlight();
+        state.hasRunCurrent = false;
+        state.hasTestedCurrent = false;
+        setLessonCompleted(state.activeId, false);
+        output.classList.remove("success");
+        renderExerciseNav();
+        syncFooterActions(stageOrder[state.stageIndex]);
+        updateNavButtons();
         setStatus("Changes saved in this browser.", "ok");
       });
 

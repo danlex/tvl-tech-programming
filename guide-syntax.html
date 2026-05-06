@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TVL Tech | Guide | Syntax</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/lucide-static@0.511.0/font/lucide.css"
+    />
+    <link rel="stylesheet" href="guide.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="section">
+        <div class="brand-row">
+          <a class="brand-mark" href="https://www.tvl.tech/" aria-label="TVL Tech website" title="TVL Tech website">
+            <img src="tvl-tech-combined-logo.svg" alt="TVL Tech" />
+          </a>
+          <a class="brand-home" href="wiki.html">
+            <div class="brand-copy">
+              <h1>Programming Guide</h1>
+            </div>
+          </a>
+          <a class="brand-link" href="index.html">Lessons</a>
+        </div>
+
+        <div class="guide-head">
+          <div class="guide-nav" aria-label="Guide navigation">
+            <a class="guide-nav-button" href="guide-variables.html" aria-label="Previous concept: Variables" title="Previous concept: Variables">
+              <i class="icon-chevron-left action-icon" aria-hidden="true"></i>
+            </a>
+            <div class="guide-current">
+              <span class="guide-current-label">Concept 2 / 8</span>
+              <span class="guide-current-title">Syntax</span>
+            </div>
+            <a class="guide-nav-button" href="guide-if-statements.html" aria-label="Next concept: If statements" title="Next concept: If statements">
+              <i class="icon-chevron-right action-icon" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="guide-body">
+          <section class="guide-intro">
+            <h2>Syntax</h2>
+            <p>
+              Syntax is the grammar of code. Braces, quotes, commas, colons, and parentheses
+              show the computer where each piece starts and ends.
+            </p>
+            <p>
+              If the syntax is wrong, the idea may be correct but the computer still cannot run it.
+            </p>
+          </section>
+
+          <section class="guide-section">
+            <pre>function shouldPrioritize(item: Initiative): boolean {
+  return item.impact &gt;= 7 &amp;&amp; item.effort &lt;= 4;
+}</pre>
+            <div class="mini">
+              <h3>How to read it</h3>
+              <ul>
+                <li>Read the function name first.</li>
+                <li>Read the input in parentheses next.</li>
+                <li>Read the return line last to understand the rule.</li>
+                <li>Notice that braces wrap the body of the function.</li>
+              </ul>
+            </div>
+            <div class="callout">
+              <p>Mental model: syntax is punctuation for computers. It makes your intent readable and valid.</p>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

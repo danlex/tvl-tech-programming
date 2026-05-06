@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TVL Tech | Guide | Objects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/lucide-static@0.511.0/font/lucide.css"
+    />
+    <link rel="stylesheet" href="guide.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="section">
+        <div class="brand-row">
+          <a class="brand-mark" href="https://www.tvl.tech/" aria-label="TVL Tech website" title="TVL Tech website">
+            <img src="tvl-tech-combined-logo.svg" alt="TVL Tech" />
+          </a>
+          <a class="brand-home" href="wiki.html">
+            <div class="brand-copy">
+              <h1>Programming Guide</h1>
+            </div>
+          </a>
+          <a class="brand-link" href="index.html">Lessons</a>
+        </div>
+
+        <div class="guide-head">
+          <div class="guide-nav" aria-label="Guide navigation">
+            <a class="guide-nav-button" href="guide-arrays.html" aria-label="Previous concept: Arrays" title="Previous concept: Arrays">
+              <i class="icon-chevron-left action-icon" aria-hidden="true"></i>
+            </a>
+            <div class="guide-current">
+              <span class="guide-current-label">Concept 7 / 8</span>
+              <span class="guide-current-title">Objects</span>
+            </div>
+            <a class="guide-nav-button" href="guide-tests.html" aria-label="Next concept: Tests" title="Next concept: Tests">
+              <i class="icon-chevron-right action-icon" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="guide-body">
+          <section class="guide-intro">
+            <h2>Objects</h2>
+            <p>
+              An object groups related facts about one thing. A project, customer, task, or report
+              is usually better represented as an object than as separate loose variables.
+            </p>
+            <p>
+              Each field has a name, and each name points to one value.
+            </p>
+          </section>
+
+          <section class="guide-section">
+            <pre>const project = {
+  name: "Sales dashboard",
+  priority: "medium",
+  blocked: true
+};</pre>
+            <div class="mini">
+              <h3>What to notice</h3>
+              <ul>
+                <li><code>project</code> is the object name.</li>
+                <li><code>name</code>, <code>priority</code>, and <code>blocked</code> are fields.</li>
+                <li>You read a field with dot syntax like <code>project.priority</code>.</li>
+              </ul>
+            </div>
+            <div class="callout">
+              <p>Mental model: an object is one record card with several labeled facts on it.</p>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
